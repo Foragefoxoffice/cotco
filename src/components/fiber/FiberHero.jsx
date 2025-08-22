@@ -192,14 +192,7 @@ export default function FiberHero() {
 
       {/* Text + Info Section (unaffected by scroll) */}
       <div className="mt-0 p-6 md:p-20">
-        <motion.h1
-          className="text-2xl text-center md:text-3xl font-semibold mb-4 text-[#1C1C1C]"
-          initial="hidden"
-          animate="visible"
-          variants={titleVariants}
-        >
-          FIBER
-        </motion.h1>
+
 
         <div
           ref={ref}
@@ -214,23 +207,31 @@ export default function FiberHero() {
               className="text-[#4B4B4B] mb-6 pr-30 md:pr-0"
               variants={paragraphVariants}
             >
-              To promote sustainability in Vietnam's textile and nonwoven
-              sectors, COTCO expanded into distributing viscose and specialty
-              fibers for nonwovens through a partnership with Birla Cellulose.
+              To promote sustainability in Vietnam’s textile and nonwoven sectors, COTCO expanded into distributing viscose and specialty fibers for nonwovens through a partnership with Birla Cellulose.
             </motion.p>
-
+        <motion.h3
+          className="text-2xl  md:text-md font-semibold mb-4 text-[#1C1C1C]"
+          initial="hidden"
+          animate="visible"
+          variants={titleVariants}
+        >
+          The role of viscose fiber in yarn and textile manufacturing
+        </motion.h3>
+         
             <motion.p
               className="text-[#4B4B4B] mb-6  md:pr-0"
               variants={paragraphVariants}
             >
-              In line with global sustainability trends, viscose fiber has
-              increasingly become the preferred choice for many fashion brands
-              thanks to its softness, breathability, dyeability, and
-              eco-friendliness, viscose is widely used in textiles, apparel,
-              nonwoven fabrics, and consumer products, yarn producers, and
-              export markets, adding distinctive environmental value to the
-              final products.
+             In yarn and fabric production, viscose fiber plays a vital role:
             </motion.p>
+             <motion.ul
+        className=" text-[#4B4B4B] space-y-2 pl-6"
+        variants={paragraphVariants}
+      >
+        <li className="relative before:absolute before:left-[-20px] before:content-['-']">Easily spun into various yarn types such as ring-spun, siro-spun, and vortex, suitable for both weaving and knitting applications.</li>
+        <li className="relative before:absolute before:left-[-20px] before:content-['-']">An ideal choice for a wide range of fabrics, including shirts, dresses, sleepwear, linings, as well as home textiles, technical textiles, and medical supplies</li>
+        <li className="relative before:absolute before:left-[-20px] before:content-['-']">Easily blended with other fibers such as polyester, cotton, or spandex to enhance durability, drape, and the overall value of the final product.</li>
+      </motion.ul>
           </motion.div>
 
           {/* Placeholder Right Column */}

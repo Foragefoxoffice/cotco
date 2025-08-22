@@ -16,7 +16,7 @@ const fadeInUp = {
 
 export default function CoreValuesSection() {
   return (
-    <section className="px-4 md:px-10 py-16 md:py-5 bg-white overflow-x-hidden">
+    <section className="px-4 md:px-20 py-16 md:py-5 bg-white overflow-hidden">
 <motion.div
   className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[200px] md:auto-rows-[330px] corevalues-section"
   initial="hidden"

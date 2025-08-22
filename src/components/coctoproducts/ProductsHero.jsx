@@ -127,13 +127,13 @@ export default function ProductsHero() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-9xl text-white font-bold cotton-section-heading"
+            className="text-8xl uppercase text-white font-bold cotton-section-heading"
           >
-            MACHINES
+            products
           </motion.h1>
-          <p className="text-white text-xl pl-6.5 pt-3 cotton-section-subheading">
+          {/* <p className="text-white text-xl pl-6.5 pt-3 cotton-section-subheading">
             Empowering Vietnam’s Textile Industry Since 2016
-          </p>
+          </p> */}
         </div>
           
           {/* Desktop Video */}
@@ -165,74 +165,82 @@ export default function ProductsHero() {
       </motion.div>
 
       {/* Text + Info Section (unaffected by scroll) */}
+    <div
+  ref={ref}
+  className="p-6 md:p-20 grid grid-cols-1 md:grid-cols-2 gap-8 mx-auto items-center relative"
+>
+  {/* Right Column: Image shown first on mobile */}
+  <motion.div
+    className="flex justify-center items-center order-1 md:order-2 z-10 md:-ml-16"
+    initial={{ opacity: 0, scale: 0.9 }}
+    animate={{
+      opacity: 1,
+      scale: 1,
+      transition: { delay: 0.4, duration: 0.8 },
+    }}
+  >
+    <SlideIn direction="right">
+      <img
+        src="/img/products/hero.png"
+        alt="LMW Machine"
+        className="w-full max-w-[640px] h-auto object-cover drop-shadow-xl rounded-xl"
+      />
+    </SlideIn>
+  </motion.div>
+
+  {/* Left Column: Blue panel with title + bullets */}
+  <motion.div
+    initial="hidden"
+    animate={textControls}
+    variants={textVariants}
+    className="order-2 md:order-1"
+  >
+    <motion.p
+      className="text-[#4B4B4B] mb-6 md:pb-10 pb-3 products-description"
+      variants={paragraphVariants}
+    >
+      With an agreement signed in 2022, COTCO became the official agent of
+      Lakshmi Machine Works (LMW), India's largest textile machinery
+      manufacturer, for Vietnam's spinning mills, including export-oriented
+      factories from Korea, Taiwan, China, etc. LMW is one of the few companies
+      worldwide capable of manufacturing a complete range of spinning machinery,
+      from blowroom systems to ring frames, providing integrated solutions for
+      various applications and processing diverse raw materials.
+    </motion.p>
+
+    {/* Navy card */}
+    <motion.div
+      variants={paragraphVariants}
+      className="relative bg-[#11456C] text-white rounded-xl p-6 md:p-10 shadow-lg overflow-hidden md:pr-24"
+    >
+      {/* angled right edge */}
       <div
-        ref={ref}
-        className="p-6 md:p-20 grid grid-cols-1 md:grid-cols-2 gap-8 mx-auto items-center"
-      >
-        {/* Right Column: Image shown first on mobile */}
-        <motion.div
-          className="flex justify-center items-center order-1 md:order-2"
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{
-            opacity: 1,
-            scale: 1,
-            transition: { delay: 0.4, duration: 0.8 },
-          }}
-        >
-          <SlideIn direction="right">
-            <img
-              src="/img/products/hero.png"
-              alt="Fiber Placeholder"
-              className="w-full h-auto object-cover rounded-xl"
-            />
-          </SlideIn>
-        </motion.div>
+        aria-hidden
+        className="hidden md:block absolute top-0 right-0 h-full w-24 bg-[#11456C] -skew-x-12 translate-x-10"
+      />
 
-        {/* Left Column: Text shown second on mobile */}
-        <motion.div
-          initial="hidden"
-          animate={textControls}
-          variants={textVariants}
-          className="order-2 md:order-1"
-        >
-          <motion.p
-            className="text-[#4B4B4B] mb-6 pr-30 md:pb-20 pb-3 md:pr-0 products-description"
-            variants={paragraphVariants}
-          >
-            With an agreement signed in 2022, COTCO became the official agent of
-            Lakshmi Machine Works (LMW), India's largest textile machinery
-            manufacturer, for Vietnam's spinning mills, including
-            export-oriented factories from Korea, Taiwan, China, etc. LMW is one
-            of the few companies worldwide capable of manufacturing a complete
-            range of spinning machinery, from blowroom systems to ring frames,
-            providing integrated solutions for various applications and
-            processing diverse raw materials.
-          </motion.p>
+      <h3 className="uppercase text-white text-2xl md:text-3xl font-extrabold tracking-wide mb-5">
+        Customer Benefits
+      </h3>
 
-          <motion.div
-            className="bg-[#11456C] rounded-xl text-white grid gap-4 p-10"
-            variants={paragraphVariants}
-          >
-            <FiUser className="text-[#fff] text-6xl mr-2" />
-            <span className="text-[#fff] text-2xl font-semibold">
-              Customer Benefits
-            </span>
-            <ul className="list-disc list-inside">
-              <li>Lower production costs & improved quality standards.</li>
-              <li>
-                Genuine spare parts at competitive prices to optimize equipment
-                reliability.
-              </li>
-              <li>Guaranteed machine quality & performance.</li>
-              <li>Precise interaction between machinery components.</li>
-              <li>
-                Smart tech applications for automated production, offering
-                efficient management solutions.
-              </li>
-            </ul>
-          </motion.div>
-        </motion.div>
-      </div>
+      <ul className="list-disc pl-5 marker:text-white space-y-2 text-[15px] leading-relaxed">
+        <li>Lower production costs &amp; improved quality standards.</li>
+        <li>
+          Genuine spare parts at competitive prices to optimize equipment
+          reliability.
+        </li>
+        <li>Guaranteed machine quality &amp; performance.</li>
+        <li>Precise interaction between machinery components.</li>
+        <li>
+          Smart tech applications for automated production, offering efficient
+          management solutions.
+        </li>
+        <li>Global footprint with strong after-sales service.</li>
+      </ul>
+    </motion.div>
+  </motion.div>
+</div>
+
     </section>
   );
 }

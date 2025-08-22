@@ -209,14 +209,14 @@ export default function CottonHero() {
 
       {/* Text + Image Target Section (unaffected by scroll) */}
       <div className="mt-6 md:p-20 p-6">
-        <motion.h1
+        {/* <motion.h1
           className="text-2xl text-center md:text-3xl font-semibold mb-4 text-[#1C1C1C]"
           initial="hidden"
           animate="visible"
           variants={titleVariants}
         >
           COTTON
-        </motion.h1>
+        </motion.h1> */}
 
         <div
           ref={ref}

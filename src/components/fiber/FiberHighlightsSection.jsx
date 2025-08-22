@@ -117,7 +117,7 @@ export default function FiberInfoBlocks() {
           >
             {/* Floating Image */}
             <div
-              className={`absolute bottom-[-60px] left-1/2 transform -translate-x-1/2 z-30 w-48 rounded-lg shadow-lg transition-opacity duration-500 ${
+              className={`absolute bottom-[-60px] right-0 transform -translate-x-1/2 z-30 w-48 rounded-lg shadow-lg transition-opacity duration-500 ${
                 isActive ? "opacity-100" : "opacity-0"
               }`}
             >

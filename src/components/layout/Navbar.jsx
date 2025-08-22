@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link, useLocation } from "react-router-dom"; // ✅ Import for router
-
+import { Link, useLocation } from "react-router-dom";
+import GoogleTranslate from "../GoogleTranslate";
+import TranslateToggle from "../TranslateToggle";
 
 const menuLinks = [
   { label: "Home", href: "/" },
@@ -10,18 +11,17 @@ const menuLinks = [
   { label: "Cotton", href: "/cotton" },
   { label: "Fiber", href: "/fiber" },
   { label: "Products", href: "/products" },
-  { label: "Resources", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
 
 const Navbar = () => {
-  const location = useLocation(); // ✅ Current URL path
+  const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [scrolled, setScrolled] = useState(false);
 
-  const toggleMenu = () => setIsOpen(!isOpen);
+  const toggleMenu = () => setIsOpen((s) => !s);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,8 +30,7 @@ const Navbar = () => {
       setScrolled(currentScrollY > 10);
       setLastScrollY(currentScrollY);
     };
-
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
@@ -42,7 +41,7 @@ const Navbar = () => {
   const getLinkClass = (href) =>
     `transition-colors duration-300 font-medium ${
       location.pathname === href
-        ? "text-[#0D3B66] font-semibold" // ✅ Active color
+        ? "text-[#0D3B66] font-semibold"
         : scrolled
         ? "text-[#121E2B] hover:text-[#121E2B]"
         : "text-[#fff] hover:text-[#fff]"
@@ -52,29 +51,39 @@ const Navbar = () => {
     <>
       <nav className={navClasses}>
         <div className="mx-auto px-6 md:px-20 py-4 flex justify-between items-center">
+          {/* Logo */}
           <div className="flex items-center gap-2 font-bold text-xl text-blue-700">
-           <Link to="/"><img src="/logo/logo.png" alt="Logo" className="h-14 w-auto" /></Link>
+            <Link to="/">
+              <img src="/logo/logo.png" alt="Logo" className="h-14 w-auto" />
+            </Link>
           </div>
 
-          {/* Desktop Links */}
-          <div className="hidden md:flex space-x-16">
-            {menuLinks.map(({ label, href }) => (
-              <Link key={label} to={href} className={getLinkClass(href)}>
-                {label}
-              </Link>
-            ))}
+          {/* Desktop: links + language toggle */}
+          <div className="hidden md:flex items-center gap-8">
+            <div className="flex space-x-16">
+              {menuLinks.map(({ label, href }) => (
+                <Link key={label} to={href} className={getLinkClass(href)}>
+                  {label}
+                </Link>
+              ))}
+            </div>
+            <TranslateToggle />
           </div>
 
           {/* Mobile Toggle */}
-          <div
+          <button
             className={`md:hidden text-2xl cursor-pointer z-[60] ${
               isOpen ? "text-white" : "text-gray-800"
             }`}
             onClick={toggleMenu}
+            aria-label="Toggle menu"
           >
             {isOpen ? <FaTimes /> : <FaBars />}
-          </div>
+          </button>
         </div>
+
+        {/* Mount Google widget ONCE (hidden but rendered) */}
+        <GoogleTranslate defaultLang={localStorage.getItem("preferred_lang") || "en"} />
       </nav>
 
       {/* Mobile Menu */}
@@ -90,10 +99,17 @@ const Navbar = () => {
             <button
               className="absolute top-6 right-6 text-[#0A1C2E] text-3xl focus:outline-none"
               onClick={toggleMenu}
+              aria-label="Close menu"
             >
               <FaTimes />
             </button>
 
+            {/* Language toggle (mobile) */}
+            <div className="mb-10">
+              <TranslateToggle />
+            </div>
+
+            {/* Links */}
             <div className="space-y-8 grid text-center">
               {menuLinks.map(({ label, href }, index) => (
                 <motion.div
@@ -106,7 +122,9 @@ const Navbar = () => {
                     to={href}
                     onClick={toggleMenu}
                     className={`text-2xl font-semibold ${
-                      location.pathname === href ? "text-blue-600" : "hover:text-blue-400"
+                      location.pathname === href
+                        ? "text-blue-600"
+                        : "hover:text-blue-400"
                     }`}
                   >
                     {label}

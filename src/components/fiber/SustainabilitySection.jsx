@@ -5,7 +5,7 @@ const SustainabilitySection = () => {
   return (
     <section className="bg-white pb-20 px-4 md:px-20">
       <div className="mx-auto text-center">
-        <span className="text-sm font-semibold text-blue-500 px-4 py-1 bg-blue-100 rounded-full mb-4 inline-block">
+        <span className="text-sm font-semibold text-black px-4 py-1 bg-blue-100 rounded-full mb-4 inline-block">
           Sustainability
         </span>
         <h2 className="text-2xl md:text-4xl font-extrabold text-gray-900 mb-4">

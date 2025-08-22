@@ -45,13 +45,11 @@ const HeroSection = () => {
             ease: "easeOut",
             scale: { duration: 0.6 },
           }}
-          className="max-w-4xl"
+          className="max-w-6xl"
         >
-          <h3 className="text-3xl text-[#298bcb] md:text-5xl font-light tracking-wider uppercase mb-2">
-            GROW IN TRUST,
-          </h3>
-          <h3 className="text-4xl text-[#298bcb] md:text-6xl font-semibold tracking-wider uppercase">
-            QUALITY AND SERVICE
+          
+          <h3 className="text-4xl text-[#143A59] md:text-6xl font-bold tracking-wider uppercase">
+            OUR STORY,VISION & VALUES
           </h3>
         </motion.div>
       </motion.div>

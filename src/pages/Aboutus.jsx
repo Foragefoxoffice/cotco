@@ -1,8 +1,10 @@
 import React from "react";
 
 import Navbar from "../components/layout/Navbar";
+import AboutUsSection from "../components/aboutus/about";
+import CoreStrengthSection from "../components/aboutus/CoreStrengthSection";
+import FounderSection from "../components/aboutus/FounderSection";
 import HeroSection from "../components/aboutus/HeroSection";
-import CoreValues from "../components/aboutus/CoreValues";
 import VissionMission from "../components/aboutus/VissionMission";
 import OurTeam from "../components/aboutus/OurTeam";
 import Certification from "../components/aboutus/Certification";
@@ -15,10 +17,12 @@ const Aboutus = () => {
     <div>
       <Navbar />
       <HeroSection />
+      <AboutUsSection />
+      <FounderSection />
       <VissionMission />
-      <CoreValues />
-      <OurTeam />
+      <CoreStrengthSection />
       <ExpertiseTimeline />
+      <OurTeam />
       <Certification />
       <Partner />
       <Footer />

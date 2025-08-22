@@ -60,11 +60,13 @@ export default function PinnedExpertiseTimeline() {
 
   return (
     <section ref={sectionRef} className="relative h-[500vh] bg-[#E7EDF5]">
+     
       {/* Desktop Layout */}
       <div className="hidden md:grid sticky top-0 h-screen grid-cols-1 md:grid-cols-2 gap-12 justify-center w-full px-6 md:pr-0 md:px-20">
         {/* Left: Years + Description */}
         <div className="flex flex-col justify-center space-y-4 max-w-xl h-full py-20">
           <div className="space-y-4">
+             <h3 className="absolute left-[-100px] top-3/6 text-[#19191940] z-2 rotate-[270deg] text-6xl font-bold  text-center">OUR HISTORY</h3>
             {expertiseData.slice(0, currentIndex + 1).map((item, i) => (
               <motion.div
                 key={i}
@@ -87,7 +89,7 @@ export default function PinnedExpertiseTimeline() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
-            className="text-lg text-end text-black font-normal pt-6"
+            className="text-lg text-end text-black font-normal pt-6 pl-16"
           >
             {expertiseData[currentIndex].description}
           </motion.p>
@@ -151,9 +153,9 @@ export default function PinnedExpertiseTimeline() {
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.5 }}
-          className="absolute top-10 right-6 z-30"
+          className="absolute top-10 left-10 md:right-6 z-30"
         >
-          <p className="text-white font-semibold text-sm uppercase mb-2">History</p>
+          <p className="text-white font-semibold text-3xl uppercase mb-2">Our History</p>
         </motion.div>
 
         {/* Top Text Right */}
@@ -171,12 +173,13 @@ export default function PinnedExpertiseTimeline() {
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.4, duration: 0.5 }}
-          className="absolute bottom-10  right-6 z-30"
+          className="absolute bottom-10  right-0 p-6 z-30"
         >
           <p className="text-white text-sm leading-relaxed">
             {expertiseData[currentIndex].description}
           </p>
         </motion.div>
+        
       </div>
     </section>
   );

@@ -9,6 +9,9 @@ import CoreStrengthSection from "../components/home/CoreStrengthSection";
 import ContactToday from "../components/home/ContactToday";
 import NewsEventsSection from "../components/home/NewsLetter";
 import WhoWeAreSection from "../components/home/WhoWeAreSection";
+import WhatDefineUs from "../components/home/WhatDefineUs";
+import CoreValues from "../components/aboutus/CoreValues";
+import NewSection from "../components/home/NewSection";
 
 const Home = () => {
   return (
@@ -18,10 +21,13 @@ const Home = () => {
         <HeroSection />
         <WhoWeAreSection/>
         <ProductShowcase />
-        <VisionMissionSection />
+        {/* <VisionMissionSection /> */}
         <PartnerSection />
-        <CoreStrengthSection />
-        <NewsEventsSection />
+        {/* <CoreStrengthSection /> */}
+        {/* <NewsEventsSection /> */}
+        <WhatDefineUs />
+        <CoreValues />
+        <NewSection/>
         <ContactToday />
       </main>
       <Footer />

@@ -100,7 +100,7 @@ export default function WhyChooseViscose() {
                   isActive ? "flex-[2]" : "flex-[1]"
                 }`}
               >
-                <div className="absolute inset-0 bg-[#0c1b34] transition-opacity duration-700 group-hover:opacity-0"></div>
+                <div className={`absolute inset-0  transition-opacity duration-700 group-hover:opacity-0 ${isActive ? "bg-[#0c1b34]/60" : " bg-transparent"}`}></div>
 
                 <div
                   className={`absolute inset-0 transition-opacity duration-700 ${
@@ -113,7 +113,7 @@ export default function WhyChooseViscose() {
                   }}
                 ></div>
 
-                <div className="absolute inset-0 bg-black/60 transition duration-500"></div>
+                <div className={`absolute inset-0  transition-opacity duration-700 group-hover:opacity-0 ${isActive ? "bg-transparent" : "  bg-[#11456C]"}`}></div>
 
                 <div className="relative z-10 p-6 text-left text-white flex flex-col justify-end h-full transition-all duration-700">
                   <div className="text-2xl text-blue-300 mb-2">{feature.icon}</div>
