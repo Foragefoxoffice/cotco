@@ -105,7 +105,7 @@ export default function ProductsHero() {
   };
 
   return (
-    <section className="relative bg-white  md:pt-0 overflow-x-hidden overflow-hidden">
+    <section className="relative bg-white hero md:pt-0 overflow-x-hidden overflow-hidden">
       {/* Video Section with Scroll Effect */}
       <motion.div
         initial={{ scale: 1, opacity: 1 }}
@@ -122,7 +122,7 @@ export default function ProductsHero() {
           animate="visible"
           variants={heroVariants}
         >
-        <div className="absolute z-10 bottom-[190px] left-15">
+        <div className="absolute z-10 bottom-[190px] left-6 md:left-15">
           <motion.h1
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -167,8 +167,23 @@ export default function ProductsHero() {
       {/* Text + Info Section (unaffected by scroll) */}
     <div
   ref={ref}
-  className="p-6 md:p-20 grid grid-cols-1 md:grid-cols-2 gap-8 mx-auto items-center relative"
+  className="page-width m d:pt-14 pt-6 mx-auto items-center relative"
 >
+      <motion.p
+      className="text-[#4B4B4B] mb-6 md:pb-10 pb-3 products-description"
+      variants={paragraphVariants}
+    >
+      With an agreement signed in 2022, COTCO became the official agent of
+      Lakshmi Machine Works (LMW), India's largest textile machinery
+      manufacturer, for Vietnam's spinning mills, including export-oriented
+      factories from Korea, Taiwan, China, etc. LMW is one of the few companies
+      worldwide capable of manufacturing a complete range of spinning machinery,
+      from blowroom systems to ring frames, providing integrated solutions for
+      various applications and processing diverse raw materials.
+    </motion.p>
+    </div>
+  <div className=" mx-auto mt-10 md:mt-0 mb-20 grid md:grid-cols-2  items-start">
+
   {/* Right Column: Image shown first on mobile */}
   <motion.div
     className="flex justify-center items-center order-1 md:order-2 z-10 md:-ml-16"
@@ -183,10 +198,13 @@ export default function ProductsHero() {
       <img
         src="/img/products/hero.png"
         alt="LMW Machine"
-        className="w-full max-w-[640px] h-auto object-cover drop-shadow-xl rounded-xl"
+        className="w-full max-w-[440px] h-auto ml-[-20%] z-20 object-cover rounded-xl"
       />
     </SlideIn>
   </motion.div>
+
+
+
 
   {/* Left Column: Blue panel with title + bullets */}
   <motion.div
@@ -195,23 +213,12 @@ export default function ProductsHero() {
     variants={textVariants}
     className="order-2 md:order-1"
   >
-    <motion.p
-      className="text-[#4B4B4B] mb-6 md:pb-10 pb-3 products-description"
-      variants={paragraphVariants}
-    >
-      With an agreement signed in 2022, COTCO became the official agent of
-      Lakshmi Machine Works (LMW), India's largest textile machinery
-      manufacturer, for Vietnam's spinning mills, including export-oriented
-      factories from Korea, Taiwan, China, etc. LMW is one of the few companies
-      worldwide capable of manufacturing a complete range of spinning machinery,
-      from blowroom systems to ring frames, providing integrated solutions for
-      various applications and processing diverse raw materials.
-    </motion.p>
+    
 
     {/* Navy card */}
     <motion.div
       variants={paragraphVariants}
-      className="relative bg-[#11456C] text-white rounded-xl p-6 md:p-10 shadow-lg overflow-hidden md:pr-24"
+      className="relative bg-[#11456C] text-white  p-6 md:p-10 shadow-lg md:pr-24"
     >
       {/* angled right edge */}
       <div
@@ -219,7 +226,7 @@ export default function ProductsHero() {
         className="hidden md:block absolute top-0 right-0 h-full w-24 bg-[#11456C] -skew-x-12 translate-x-10"
       />
 
-      <h3 className="uppercase text-white text-2xl md:text-3xl font-extrabold tracking-wide mb-5">
+      <h3 className="uppercase heading tracking-wide mb-5" style={{ color: "#FFFFFF" }}>
         Customer Benefits
       </h3>
 

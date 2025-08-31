@@ -19,7 +19,7 @@ export default function FounderSection() {
     <section className="bg-white">
       <div
         ref={ref}
-        className=" mx-auto md:grid md:grid-cols-12 md:gap-10 items-center px-6 md:px-20 md:py-0"
+        className=" mx-auto md:grid md:grid-cols-12 md:gap-10 items-center page-width pt-6 md:pt-20"
       >
         {/* LEFT: Founder text */}
         <motion.div
@@ -28,12 +28,39 @@ export default function FounderSection() {
           animate={inView ? "animate" : "initial"}
           variants={fadeLeft}
         >
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-wide text-slate-900 uppercase">
+          <h2 className="heading tracking-wide text-slate-900 uppercase text-center md:text-left">
             Founder
           </h2>
-          <h3 className="mt-1 text-xl md:text-2xl font-semibold text-slate-800">
+          <h3 className="mt-1 text-xl md:text-2xl font-semibold text-slate-800 text-center md:text-left">
             Huan Dinh
           </h3>
+
+          <div className="relative md:w-6/12 block md:hidden">
+             <motion.div
+            className="absolute z-1 md:right-[-16px]  top-10 w-[60%] h-[40%] bg-[#11456C] rounded-[28px] shadow-sm"
+            initial={{ opacity: 0, y: -20 }}
+            animate={inView ? { opacity: 1, y: 0, transition: { delay: 0.1, duration: 0.5 } } : {}}
+          />
+
+          {/* Main portrait */}
+          <motion.img
+            src="/img/about/founder.png" // transparent PNG looks best; replace path
+            alt="Founder portrait"
+            className="relative z-10  rounded-[22px] object-cover"
+            initial={{ opacity: 0, y: 30 }}
+            animate={
+              inView
+                ? {
+                    opacity: 1,
+                    y: 0,
+                    transition: { delay: 0.2, duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+                  }
+                : {}
+            }
+            whileHover={{ y: -4 }}
+          />
+
+         </div>
 
           <ul className="mt-5 space-y-2 text-slate-700 leading-relaxed list-disc pl-5 ">
             <li>
@@ -58,12 +85,12 @@ export default function FounderSection() {
 
         {/* RIGHT: Collage (3 images + color card) */}
         <motion.div
-          className="md:flex w-full grid md:gap-10 gap-6 col-span-12 md:col-span-6 relative  "
+          className="hidden md:flex w-full  md:gap-10 gap-6 col-span-12 md:col-span-6 relative  "
           initial="initial"
           animate={inView ? "animate" : "initial"}
           variants={fadeRight}
         >
-         <div className="relative md:w-6/12">
+         <div className="relative md:w-6/12 ">
              <motion.div
             className="absolute z-1 md:right-[-16px]  top-10 w-[60%] h-[40%] bg-[#11456C] rounded-[28px] shadow-sm"
             initial={{ opacity: 0, y: -20 }}

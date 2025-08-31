@@ -103,7 +103,7 @@ export default function FiberHero() {
   };
 
   return (
-    <section className="relative bg-white  overflow-hidden">
+    <section className="relative bg-white hero overflow-hidden">
       {/* Video Section with Scroll Effect */}
       <motion.div
         initial={{ scale: 1, opacity: 1 }}
@@ -115,7 +115,7 @@ export default function FiberHero() {
           scrolled ? "rounded-2xl shadow-2xl" : "rounded-none"
         }`}
       >
-        <div className="absolute z-10 bottom-[190px] left-15">
+        <div className="absolute z-10 bottom-[190px] left-6 md:left-15">
           <motion.h1
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -166,32 +166,34 @@ export default function FiberHero() {
           </div>
 
           {/* Animated Bubble (shared for both) */}
-          <motion.div
-            initial={{
-              position: "absolute",
-              right: "-200px",
-              top: "70%",
-              rotate: bubbleRotation,
-            }}
-            animate={controls}
-            style={{ rotate: bubbleRotation, position: "absolute" }}
-            whileHover={{ scale: 1.05 }}
-          >
-            <img
-              src="/img/fiber/fiber.png"
-              alt="fiber Ball"
-              className="rounded-xl w-full"
-            />
-            <motion.div
-              animate={shadowControls}
-              className="w-full h-6 bg-black rounded-md mx-auto mt-[-20px] blur-sm"
-            />
-          </motion.div>
+          {/* Animated Bubble (shared for both) */}
+<motion.div
+  initial={{
+    position: "absolute",
+    right: "-200px",
+    top: "70%",
+    rotate: bubbleRotation,
+  }}
+  animate={controls}
+  style={{ rotate: bubbleRotation, position: "absolute" }}
+  whileHover={{ scale: 1.05 }}
+>
+  <img
+    src="/img/fiber/fiber.png"
+    alt="fiber Ball"
+    className="rounded-xl w-[240px] sm:w-[200px] md:w-[180px] lg:w-[220px] xl:w-[280px] 2xl:w-[320px]"
+  />
+  <motion.div
+    animate={shadowControls}
+    className="w-full h-6 bg-black rounded-md mx-auto mt-[-20px] blur-sm"
+  />
+</motion.div>
+
         </motion.div>
       </motion.div>
 
       {/* Text + Info Section (unaffected by scroll) */}
-      <div className="mt-0 p-6 md:p-20">
+      <div className="page-width pt-6 md:pt-10">
 
 
         <div

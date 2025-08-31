@@ -5,7 +5,7 @@ import HeroSection from "../components/contactus/HeroSection";
 import GetinTouch from "../components/contactus/GetinTouch";
 import Form from "../components/contactus/Form";
 import ContactMap from "../components/contactus/ContactMap";
-import ContactToday from "../components/contactus/ContactToday";
+import ContactToday from "../components/common/ContactToday";
 import Footer from "../components/layout/Footer";
 
 const Contactus = () => {

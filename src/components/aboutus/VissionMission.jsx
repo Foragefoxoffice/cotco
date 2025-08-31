@@ -50,20 +50,20 @@ function Stat({ value, label, suffix = "", prefix = "", duration = 1200, classNa
 export default function VissionMission() {
   return (
     <section className="bg-white">
-      <div className="px-6 md:px-20 py-12 md:py-16">
+      <div className="page-width pt-6 md:pt-20">
         <div className="relative rounded-[22px] md:rounded-[28px] bg-[#0E3E62] text-white shadow-xl">
           <div className="grid grid-cols-12 gap-8 md:gap-12 p-6 sm:p-8 md:p-12">
             {/* LEFT: title + blurbs */}
-            <SlideIn direction="left" className="col-span-12 md:col-span-7 lg:col-span-8">
+            <SlideIn direction="left" className="col-span-12 md:col-span-7 lg:col-span-8 pr-20">
               <div>
-                <h2 className="uppercase tracking-wide font-extrabold text-2xl sm:text-3xl md:text-4xl">
+                <h2 className="uppercase tracking-wide heading" style={{color:'white'}}>
                   VISSION &amp; MISSION
                 </h2>
 
                 <div className="mt-6 space-y-6">
                   <div>
                     <h3 className="uppercase text-sm font-bold tracking-wider">Developed From Trust</h3>
-                    <p className="mt-2 text-[15px] text-white/90 leading-relaxed max-w-2xl">
+                    <p className="mt-2 text-[15px] text-white/90 leading-relaxed ">
                       We build lasting and transparent relationships with suppliers and customers worldwide,
                       becoming a reliable partner in the fields of cotton, yarn, and machinery.
                     </p>
@@ -71,7 +71,7 @@ export default function VissionMission() {
 
                   <div>
                     <h3 className="uppercase text-sm font-bold tracking-wider">Quality</h3>
-                    <p className="mt-2 text-[15px] text-white/90 leading-relaxed max-w-2xl">
+                    <p className="mt-2 text-[15px] text-white/90 leading-relaxed ">
                       We are committed to supplying and distributing premium products, ensuring our customers
                       always receive the highest-quality raw materials and equipment.
                     </p>
@@ -79,7 +79,7 @@ export default function VissionMission() {
 
                   <div>
                     <h3 className="uppercase text-sm font-bold tracking-wider">Service</h3>
-                    <p className="mt-2 text-[15px] text-white/90 leading-relaxed max-w-2xl">
+                    <p className="mt-2 text-[15px] text-white/90 leading-relaxed ">
                       We guide customers with expert advice to choose the best in cotton, yarn, and machinery,
                       backed by professional logistics that ensure smooth shipment tracking from start to finish.
                     </p>

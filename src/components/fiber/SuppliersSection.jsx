@@ -19,11 +19,11 @@ export default function SupplierSection() {
   }, []);
 
   return (
-    <section className="bg-[#0A4A78] text-white py-20 px-6 md:px-20">
-      <div className="mx-auto grid grid-cols-1 md:grid-cols-3 items-center gap-10">
+    <section className="bg-[#0A4A78] text-white py-6  md:py-20 ">
+      <div className="mx-auto grid grid-cols-1 md:grid-cols-3 items-center gap-10 page-width">
         {/* Left Text Content */}
         <div className="md:col-span-2">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6">SUPPLIER</h2>
+          <h2 className="heading mb-6" style={{ color: "#fff" }}>SUPPLIER</h2>
           <ul className="space-y-3 text-sm md:text-base text-white/90 leading-relaxed">
             <li>
               • One of the world’s largest fiber producers, part of the Aditya Birla Group, India

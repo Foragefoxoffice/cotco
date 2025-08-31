@@ -9,8 +9,8 @@ import {
 
 const Footer = () => {
   return (
-   <footer className="bg-[#0A1C2E] text-white px-6 md:px-20 pt-40 pb-20 footer-section">
-      <div className="max-w-7xl mx-auto">
+   <footer className="bg-[#0A1C2E] text-white  pt-40 pb-20 footer-section">
+      <div className="page-width mx-auto">
         <div className="grid md:grid-cols-2 gap-10">
           {/* Left: Logo + Social */}
           <div className="space-y-8">
@@ -38,17 +38,47 @@ const Footer = () => {
 
           {/* Middle: Navigation */}
           <div className="grid grid-cols-2 gap-10 text-sm md:pl-20">
-            <div className="space-y-5">
-              <p className="font-medium text-white text-lg">Product</p>
-              <p className="font-medium text-white text-lg">Solutions</p>
-              <p className="font-medium text-white text-lg">Customers</p>
-              <p className="font-medium text-white text-lg">Blog</p>
-            </div>
-            <div className="space-y-5">
-              <p className="font-medium text-white text-lg">Contact Us</p>
-              <p className="font-medium text-white text-lg">Press</p>
-              <p className="font-medium text-white text-lg">Support</p>
-            </div>
+          <ul className="space-y-5">
+  <li>
+    <a href="/aboutus" className="font-medium text-white text-lg hover:text-gray-300 transition">
+      About Us
+    </a>
+  </li>
+  <li>
+    <a href="/cotton" className="font-medium text-white text-lg hover:text-gray-300 transition">
+      Cotton
+    </a>
+  </li>
+  <li>
+    <a href="/fiber" className="font-medium text-white text-lg hover:text-gray-300 transition">
+      Fiber
+    </a>
+  </li>
+  <li>
+    <a href="/products" className="font-medium text-white text-lg hover:text-gray-300 transition">
+      Products
+    </a>
+  </li>
+  <li>
+    <a href="/contact" className="font-medium text-white text-lg hover:text-gray-300 transition">
+      Contact Us
+    </a>
+  </li>
+</ul>
+
+<ul className="space-y-5">
+  <li>
+    <a href="/aboutus" className="font-medium text-white text-lg hover:text-gray-300 transition">
+      Privacy Policy
+    </a>
+  </li>
+  <li>
+    <a href="/aboutus" className="font-medium text-white text-lg hover:text-gray-300 transition">
+      Terms and Conditions
+    </a>
+  </li>
+</ul>
+
           </div>
         </div>
 

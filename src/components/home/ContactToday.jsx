@@ -10,7 +10,7 @@ const ContactToday = () => {
 
       <div style={{backgroundColor: "#1F90D8CC"}} className="absolute inset-0 bg-opacity-60"></div>
 
-      <div className="relative z-10 flex items-center h-full px-6 md:px-20">
+      <div className="relative z-10 flex items-center h-full page-width">
         <div>
           <h2 className="text-white text-6xl md:text-6xl font-semibold mb-1">
             Ready to Grow with COTCO?

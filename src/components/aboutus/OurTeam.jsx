@@ -65,7 +65,7 @@ const teamMembers = [
 
 export default function OurTeam() {
   return (
-    <section className="md:py-20 md:px-20 px-6 pt-10 md:pt-0 pb-10 bg-white">
+    <section className="md:pt-20 page-width pt-6 bg-white">
       <div className=" mx-auto">
         {/* Heading */}
         <div className="text-center mb-10">
@@ -78,7 +78,7 @@ export default function OurTeam() {
             </p>
           </div>
 
-          <h2 className="text-7xl font-bold mb-4">MEET OUR TEAM</h2>
+          <h2 className="heading mb-4">MEET OUR TEAM</h2>
           <p className="text-gray-600 max-w-3xl mx-auto">
             Our experienced professionals combine deep textile industry
             knowledge with international trade expertise, ensuring seamless

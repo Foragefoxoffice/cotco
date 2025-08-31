@@ -3,7 +3,7 @@ import React from "react";
 export default function AboutUsSection() {
   return (
     <section className="bg-white">
-      <div className=" mx-auto grid grid-cols-12 gap-8 md:gap-18 items-start px-6 md:px-20 py-6 md:py-16">
+      <div className="  grid grid-cols-12 gap-8 md:gap-18 items-start page-width pt-6 md:pt-20">
         {/* LEFT: Image */}
         <div className="col-span-12 md:col-span-5">
           <div className="aspect-square w-full max-w-[420px] md:max-w-full rounded-[24px] overflow-hidden ring-1 ring-black/5 shadow-sm">

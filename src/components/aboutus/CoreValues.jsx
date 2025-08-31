@@ -16,7 +16,7 @@ const fadeInUp = {
 
 export default function CoreValuesSection() {
   return (
-    <section className="px-4 md:px-20 py-16 md:py-5 bg-white overflow-hidden">
+    <section className="page-width md:pt-20 pt-6 bg-white overflow-hidden">
 <motion.div
   className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[200px] md:auto-rows-[330px] corevalues-section"
   initial="hidden"
@@ -29,7 +29,7 @@ export default function CoreValuesSection() {
     variants={fadeInUp}
     className="relative bg-[#edf3fb] rounded-xl md:p-20 p-6 flex items-center justify-center text-center order-1"
   >
-    <h2 className="text-2xl font-bold z-10 md:text-sm">CORE VALUES</h2>
+    <h2 className="heading">CORE VALUES</h2>
   </motion.div>
 
   {/* 2. Image (Placed right after Core Values in mobile) */}
@@ -40,15 +40,13 @@ export default function CoreValuesSection() {
     <img
       src="/img/services/image5.png"
       alt="Cotton Field"
-      className="w-full relative cotton-flower-image1"
+      className="w-full h-full relative cotton-flower-image1"
     />
-<div className="relative">
   <img
     src="/img/services/image6.png"
     alt="Cotton Field"
-    className="w-full max-w-2xl -mt-[568px] z-10 cotton-flower-image"
+    className="  absolute z-10 bottom-0"
   />
-</div>
 
   </motion.div>
 

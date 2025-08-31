@@ -11,6 +11,7 @@ import Fiber from './pages/Fiber';
 import Contactus from './pages/Contactus';
 import Products from './pages/products';
 import ScrollToTop from './ScrollToTop';
+import BlogList from './pages/BlogList';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -23,6 +24,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/fiber" element={<Fiber />} />
         <Route path="/products" element={<Products />} />
         <Route path="/contact" element={<Contactus />} />
+        <Route path="/blog" element={<BlogList />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,

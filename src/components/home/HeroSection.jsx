@@ -23,7 +23,7 @@ export default function HeroSection() {
       initial={{ scale: 1, opacity: 1 }}
       animate={scrolled ? { scale: 0.95, opacity: 0.9 } : { scale: 1, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`relative overflow-hidden min-h-screen transition-all duration-500 ease-out ${
+      className={`relative overflow-hidden hero min-h-screen transition-all duration-500 ease-out ${
         scrolled ? "rounded-2xl shadow-2xl" : ""
       }`}
     >
@@ -42,7 +42,7 @@ export default function HeroSection() {
        <div className="absolute inset-0 bg-black/40" />
 
       {/* Text Content */}
-      <div className="absolute md:bottom-0 bottom-10 px-12 pb-20 text-white max-w-4xl">
+      <div className="absolute md:bottom-0 bottom-10 md:px-12 p-6 pb-20 text-white max-w-4xl">
         <h1 className="text-4xl md:text-6xl font-semibold leading-tight">
           Your Trusted Partner in Quality Cotton, Fibers & Textile Machinery
         </h1>

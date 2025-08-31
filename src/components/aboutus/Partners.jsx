@@ -18,7 +18,7 @@ export default function Partner() {
   const settings = {
     dots: false,
     infinite: true,
-    speed: 2000,
+    speed: 4000,
     autoplay: true,
     autoplaySpeed: 0, // key to smooth continuous scroll
     cssEase: "linear", // smooth motion
@@ -37,8 +37,8 @@ export default function Partner() {
   };
 
   return (
-    <section className="pb-20 px-4 md:px-20 bg-white rounded-md partner-section">
-      <h2 className="text-center text-xl md:text-2xl font-semibold mb-8">
+    <section className="md:py-20 py-6 page-width bg-white rounded-md partner-section">
+      <h2 className="text-center heading mb-8">
         PROUD PARTNERS WITH GLOBAL LEADERS
       </h2>
 

@@ -11,7 +11,7 @@ const CATEGORIES = [
 
 export default function LmwMachines() {
   return (
-    <section className="bg-white py-16 px-4 md:px-20">
+    <section className="bg-white md:pt-20 pt-6 page-width">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
         {CATEGORIES.map((item, i) => {
           const soon = item.comingSoon;

@@ -36,11 +36,11 @@ const WhatDefineUs = () => {
   ];
 
   return (
-    <section className=" px-4 md:px-20 bg-white rounded-md mt-6 md:mt-16">
+    <section className=" page-width bg-white rounded-md md:pt-20 pt-6 ">
       <div className="bg-[var(--secondary)] rounded-2xl md:py-16 p-6 md:px-22">
-        <h1 className="text-center text-xl md:text-4xl font-bold mb-8 text-white">
+        <h2 className="text-center heading mb-8 " style={{color:'white'}}>
           WHAT DEFINES US
-        </h1>
+        </h2>
 
         <div className="grid gap-5 sm:gap-6 md:gap-7 grid-cols-1 sm:grid-cols-2 lg:grid-cols-2">
           {ITEMS.map((item, i) => (

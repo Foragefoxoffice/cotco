@@ -13,7 +13,7 @@ export default function HeroSection() {
   const radius = useTransform(scrollYProgress, [0, 1], [20, 28]);
 
   return (
-    <section className="bg-white ">
+    <section className="bg-white hero">
       {/* Local styles for gradient + shine animations */}
       <style>{`
         .animated-gradient{
@@ -63,7 +63,7 @@ export default function HeroSection() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.6 }}
           transition={{ delay: 0.2, duration: 0.6, ease: 'easeOut' }}
-          className="absolute left-16 bottom-16 text-white font-extrabold tracking-wide text-3xl md:text-4xl"
+          className="absolute left-16 bottom-16 text-white font-extrabold tracking-wide text-6xl md:text-8xl"
         >
           CONTACT
         </motion.h1>

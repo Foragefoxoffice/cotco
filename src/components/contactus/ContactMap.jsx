@@ -3,7 +3,7 @@ import React from "react";
 const ContactMap = () => {
   return (
     <section className="bg-white">
-      <div className="mx-auto px-4 sm:px-6 py-6">
+      <div className="mx-auto page-width md:pt-20 pt-6">
         <div className="rounded-2xl ring-1 ring-slate-200 bg-white p-6 md:p-8 [box-shadow:rgba(0,0,0,0.1)_0px_1px_3px_0px,rgba(0,0,0,0.06)_0px_1px_2px_0px]">
           <h3 className="text-lg font-semibold text-slate-900">Our Location</h3>
 

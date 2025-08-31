@@ -21,7 +21,7 @@ const coreStrengths = [
 
 export default function CoreStrengthSection() {
   return (
-    <section className="px-6 md:px-16 py-16 pb-30 bg-white core-strength">
+    <section className="page-width py-16 pb-30 bg-white core-strength">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-10">CORE STRENGTHS</h2>
 

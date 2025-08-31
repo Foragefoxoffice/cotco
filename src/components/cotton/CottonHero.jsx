@@ -100,7 +100,7 @@ export default function CottonHero() {
   };
 
   return (
-    <section className="relative bg-white overflow-hidden">
+    <section className="relative bg-white hero overflow-hidden">
       {/* Video Section with Scroll Effect */}
       <motion.div
         initial={{ scale: 1, opacity: 1 }}
@@ -119,7 +119,7 @@ export default function CottonHero() {
           animate="visible"
           variants={heroVariants}
         >
-          <div className="absolute z-10 bottom-[190px] left-15">
+          <div className="absolute z-10 bottom-[190px] left-6 md:left-15">
             <h1 className="text-9xl text-white font-bold cotton-section-heading">
               COTTON
             </h1>
@@ -178,7 +178,7 @@ export default function CottonHero() {
             <img
               src="/img/cotton/cotton.png"
               alt="Cotton Ball"
-              className="rounded-xl w-full"
+              className="rounded-xl w-[240px] sm:w-[200px] md:w-[180px] lg:w-[220px] xl:w-[280px] 2xl:w-[320px] "
             />
             <motion.div
               animate={shadowControls}
@@ -208,7 +208,7 @@ export default function CottonHero() {
       </motion.div>
 
       {/* Text + Image Target Section (unaffected by scroll) */}
-      <div className="mt-6 md:p-20 p-6">
+      <div className="page-width md:pt-20 md:pb-30 p-6">
         {/* <motion.h1
           className="text-2xl text-center md:text-3xl font-semibold mb-4 text-[#1C1C1C]"
           initial="hidden"

@@ -23,11 +23,11 @@ const categories = [
 
 export default function ProductShowcase() {
   return (
-    <section className="bg-white px-6 md:px-20 pt-20">
+    <section className="bg-white page-width md:pt-20 pt-6">
       <div className=" mx-auto grid md:grid-cols-6 gap-10">
      
         <div className="w-full col-span-3 place-content-center">
-          <h2 className="text-4xl font-extrabold text-gray-900 mb-4">
+          <h2 className="heading mb-4">
             WHAT WE DO?
           </h2>
           <p className="text-lg text-gray-600">

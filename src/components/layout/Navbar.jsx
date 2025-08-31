@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { FiArrowDownRight } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import GoogleTranslate from "../GoogleTranslate";
@@ -47,6 +48,20 @@ const Navbar = () => {
         : "text-[#fff] hover:text-[#fff]"
     }`;
 
+  // Contact pill styles (desktop + mobile)
+  const contactClasses = (active = false) =>
+    [
+      "group inline-flex items-center gap-2 rounded-full",
+      "bg-white px-5 py-2.5",
+      "shadow-[0_1px_0_rgba(0,0,0,0.15),0_8px_20px_rgba(0,0,0,0.08)]",
+      "ring-1 ring-black/10",
+      "text-[#121E2B]",
+      "hover:shadow-[0_2px_0_rgba(0,0,0,0.18),0_10px_24px_rgba(0,0,0,0.12)]",
+      "transition-all duration-200",
+      active ? "font-semibold" : "font-medium",
+      "focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0D3B66]/50",
+    ].join(" ");
+
   return (
     <>
       <nav className={navClasses}>
@@ -60,12 +75,33 @@ const Navbar = () => {
 
           {/* Desktop: links + language toggle */}
           <div className="hidden md:flex items-center gap-8">
-            <div className="flex space-x-16">
-              {menuLinks.map(({ label, href }) => (
-                <Link key={label} to={href} className={getLinkClass(href)}>
-                  {label}
-                </Link>
-              ))}
+            <div className="flex items-center  gap-6 md:gap-10">
+              {menuLinks.map(({ label, href }) => {
+                const isActive = location.pathname === href;
+
+                if (label === "Contact") {
+                  return (
+                    <Link
+                      key={label}
+                      to={href}
+                      aria-current={isActive ? "page" : undefined}
+                      className={contactClasses(isActive)}
+                    >
+                      <span>Contact</span>
+                      <FiArrowDownRight
+                        className="shrink-0 transition-transform duration-200 ease-out group-hover:translate-x-1 group-hover:translate-y-1"
+                        size={16}
+                      />
+                    </Link>
+                  );
+                }
+
+                return (
+                  <Link key={label} to={href} className={getLinkClass(href)}>
+                    {label}
+                  </Link>
+                );
+              })}
             </div>
             <TranslateToggle />
           </div>
@@ -83,7 +119,9 @@ const Navbar = () => {
         </div>
 
         {/* Mount Google widget ONCE (hidden but rendered) */}
-        <GoogleTranslate defaultLang={localStorage.getItem("preferred_lang") || "en"} />
+        <GoogleTranslate
+          defaultLang={localStorage.getItem("preferred_lang") || "en"}
+        />
       </nav>
 
       {/* Mobile Menu */}
@@ -111,26 +149,42 @@ const Navbar = () => {
 
             {/* Links */}
             <div className="space-y-8 grid text-center">
-              {menuLinks.map(({ label, href }, index) => (
-                <motion.div
-                  key={label}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 * index }}
-                >
-                  <Link
-                    to={href}
-                    onClick={toggleMenu}
-                    className={`text-2xl font-semibold ${
-                      location.pathname === href
-                        ? "text-blue-600"
-                        : "hover:text-blue-400"
-                    }`}
+              {menuLinks.map(({ label, href }, index) => {
+                const isActive = location.pathname === href;
+
+                return (
+                  <motion.div
+                    key={label}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 * index }}
                   >
-                    {label}
-                  </Link>
-                </motion.div>
-              ))}
+                    {label === "Contact" ? (
+                      <Link
+                        to={href}
+                        onClick={toggleMenu}
+                        className={`${contactClasses(isActive)} text-xl`}
+                      >
+                        <span>Contact</span>
+                        <FiArrowDownRight
+                          className="shrink-0 transition-transform duration-200 ease-out group-hover:translate-x-1 group-hover:translate-y-1"
+                          size={18}
+                        />
+                      </Link>
+                    ) : (
+                      <Link
+                        to={href}
+                        onClick={toggleMenu}
+                        className={`text-2xl font-semibold ${
+                          isActive ? "text-blue-600" : "hover:text-blue-400"
+                        }`}
+                      >
+                        {label}
+                      </Link>
+                    )}
+                  </motion.div>
+                );
+              })}
             </div>
           </motion.div>
         )}

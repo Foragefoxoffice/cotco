@@ -50,11 +50,11 @@ export default function CertificationSliderSection() {
   }, [inView]);
 
   return (
-    <section ref={sectionRef} className="pb-20 px-6 md:px-20 bg-white overflow-x-hidden">
+    <section ref={sectionRef} className="py-6 md:py-20 page-width bg-white overflow-x-hidden">
       <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-10">
         {/* Left Side */}
-        <div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-snug text-black">
+        <div className="text-center md:text-left">
+          <h2 className="heading mb-6 leading-snug text-black">
             PROUD member of the <br />
             International Cotton Association (ICA)
           </h2>

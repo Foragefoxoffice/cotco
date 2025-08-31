@@ -3,12 +3,12 @@ import { FaRecycle, FaDroplet, FaEarthAmericas } from "react-icons/fa6";
 
 const SustainabilitySection = () => {
   return (
-    <section className="bg-white pb-20 px-4 md:px-20">
+    <section className="bg-white page-width pt-6 md:pt-20">
       <div className="mx-auto text-center">
         <span className="text-sm font-semibold text-black px-4 py-1 bg-blue-100 rounded-full mb-4 inline-block">
           Sustainability
         </span>
-        <h2 className="text-2xl md:text-4xl font-extrabold text-gray-900 mb-4">
+        <h2 className="heading mb-4">
           ECO-FRIENDLY FROM PRODUCTION TO DISPOSAL
         </h2>
         <p className="text-gray-600 text-lg mb-10">

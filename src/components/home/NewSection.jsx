@@ -46,10 +46,10 @@ export default function NewsSection() {
 
   return (
     <section className="bg-white overflow-x-hidden">
-           <div className="mx-auto grid grid-cols-12 gap-10 items-start px-6 md:px-20 md:pr-0 md:py-20 pb-10 pl-0">
+           <div className="grid grid-cols-12 gap-10 items-start page-width mr-0 md:pr-0 md:py-20 pb-10 " style={{paddingRight:0,marginRight:0}}>
         {/* Left column */}
         <div className="col-span-12 md:col-span-4 h-full grid place-content-center">
-          <h2 className="text-3xl md:text-4xl text-center md:text-left font-extrabold text-[#0F2F45]">NEWS</h2>
+          <h2 className="heading text-center md:text-left ">NEWS</h2>
           <p className="mt-4 text-slate-600 text-center md:text-left leading-relaxed max-w-sm">
             Conveniently located and surrounded by natural beauty, it's the perfect spot for our celebration.
           </p>
@@ -96,14 +96,14 @@ export default function NewsSection() {
                       className={` bg-white ring-1 ring-black/5 rounded-2xl overflow-hidden transition-all duration-300 p-4
                                   ${selectedIndex === i ? "scale-100 shadow-2xl" : "scale-[0.8] md:mx-[-30px] opacity-95 shadow-lg"}`}
                     >
-                      <img src={n.img} alt={n.title} className=" w-full object-cover rounded-xl" />
+                      <img src={n.img} alt={n.title} className=" w-full h-40 md:h-60 object-cover rounded-xl" />
                       <div className="py-4">
-                        <h3 className="text-[17px] font-semibold text-slate-900 leading-snug">
+                        <h3 className="text-[18px] font-semibold text-slate-900 leading-snug">
                           {n.title}
                         </h3>
                         <p className="mt-2 text-sm text-slate-600 line-clamp-2">{n.excerpt}</p>
                         <a href={n.href} className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-[#0F3A56]">
-                          <span className="h-6 w-6 rounded-full bg-[#1276BD] text-white grid place-items-center text-[12px]">
+                          <span className="h-8 w-8 rounded-full bg-[#1276BD] text-white grid place-items-center text-[16px]">
                             <RxArrowTopRight />
                           </span>
                           Learn More

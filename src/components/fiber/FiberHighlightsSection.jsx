@@ -121,49 +121,51 @@ export default function FiberInfoBlocks() {
                 isActive ? "opacity-100" : "opacity-0"
               }`}
             >
-              <img src={section.image} alt="fiber" className="w-full h-auto" />
+              <img src={section.image} alt="fiber" className="w-full h-auto hidden md:block" />
             </div>
 
             <div className="overflow-hidden relative">
-              {/* Overlay animation */}
-              <div
-                className={`absolute top-0 left-0 w-full h-1/2 bg-[#0A4A78] z-0 transition-transform duration-500 ease-in-out ${
-                  isActive ? "translate-y-0" : "-translate-y-full"
-                }`}
-              />
-              <div
-                className={`absolute bottom-0 left-0 w-full h-1/2 bg-[#0A4A78] z-0 transition-transform duration-500 ease-in-out ${
-                  isActive ? "translate-y-0" : "translate-y-full"
-                }`}
-              />
+  {/* Top Half (opens downward) */}
+  <div
+    className={`absolute top-0 left-0 w-full h-1/2 bg-[#0A4A78] z-0 transition-transform duration-700 ease-in-out origin-bottom
+      ${isActive ? "translate-y-0" : "-translate-y-full"}`}
+  />
 
-              {/* Main Content */}
-              <div
-                className={`relative z-10 px-6 md:px-20 py-16 transition-all duration-500 grid md:grid-cols-4 gap-10 md:gap-20 ${
-                  isActive ? "text-white" : "text-black"
-                }`}
-              >
-                  <h3 className="text-4xl md:col-span-2 md:text-6xl font-extrabold uppercase tracking-wide  min-w-[180px] outlined-text"
-           dangerouslySetInnerHTML={{ __html: section.title }}
-           />
-             
-                <ul className="space-y-3 md:col-span-2 text-sm md:text-base leading-relaxed">
-                  {section.lines.map((line, i) => (
-                    <li
-                      key={i}
-                      className="relative pl-6 before:absolute before:left-0 before:top-1 before:content-['--']"
-                    >
-                      {line}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+  {/* Bottom Half (opens upward) */}
+  <div
+    className={`absolute bottom-0 left-0 w-full h-1/2 bg-[#0A4A78] z-0 transition-transform duration-700 ease-in-out origin-top
+      ${isActive ? "translate-y-0" : "translate-y-full"}`}
+  />
+
+  {/* Main Content */}
+  <div
+    className={`relative z-10 page-width py-20 transition-all duration-500 grid md:grid-cols-4 gap-10 md:gap-20 ${
+      isActive ? "text-white" : "text-black"
+    }`}
+  >
+    <h3
+      className="text-4xl md:col-span-2 md:text-6xl font-extrabold uppercase tracking-wide min-w-[180px] outlined-text flex items-center"
+      dangerouslySetInnerHTML={{ __html: section.title }}
+    />
+
+    <ul className="space-y-3 md:col-span-2 text-sm md:text-base leading-relaxed">
+      {section.lines.map((line, i) => (
+        <li
+          key={i}
+          className="relative pl-6 before:absolute before:left-0 before:top-1 before:content-['--']"
+        >
+          {line}
+        </li>
+      ))}
+    </ul>
+  </div>
+</div>
+
           </div>
         );
       })}
       <div
-                className="relative z-10 px-6 md:px-60 py-24 transition-all duration-500 grid gap-8  "
+                className="relative z-10 page-width pt-10 md:pt-26 transition-all duration-500 grid gap-8  "
               >
               <p className="text-xl text-center">If you are looking for a raw material solution that combines performance with
 environmental responsibility, viscose fiber is the ideal choice. With its advantages in

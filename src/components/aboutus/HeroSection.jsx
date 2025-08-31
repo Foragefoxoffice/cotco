@@ -24,7 +24,7 @@ const HeroSection = () => {
       initial={{ scale: 1, opacity: 1 }}
       animate={scrolled ? { scale: 0.93, opacity: 0.95 } : { scale: 1, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`relative overflow-hidden transition-all duration-500 ease-out ${
+      className={`relative overflow-hidden hero transition-all duration-500 ease-out ${
         scrolled ? "rounded-2xl" : ""
       }`}
     >

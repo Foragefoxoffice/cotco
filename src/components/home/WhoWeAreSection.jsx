@@ -2,8 +2,8 @@ import React from "react";
 import { FiArrowDownRight } from "react-icons/fi";
 const WhoWeAreSection = () => {
   return (
-    <section className="w-full md:px-20 pt-6 md:pt-20 bg-white">
-      <div className=" mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-10">
+    <section className="w-full  bg-white page-width md:pt-20 pt-6">
+      <div className=" mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
         {/* Left Side - Illustration */}
         <div className="w-full md:w-1/2 flex justify-center">
           <img
@@ -15,8 +15,8 @@ const WhoWeAreSection = () => {
 
         {/* Right Side - Text */}
         <div className="w-full md:w-1/2  md:text-left">
-          <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-4">
-            WHO WE ARE<span className="text-black">?</span>
+          <h2 className="heading mb-4">
+            WHO WE ARE<span>?</span>
           </h2>
           <p className="text-gray-600 text-base md:text-lg mb-6 leading-relaxed">
             From Raw Materials to Technology<br />

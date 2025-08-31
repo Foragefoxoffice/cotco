@@ -77,10 +77,10 @@ const ClockIcon = () => (
 const GetinTouch = () => {
   return (
     <section className="bg-white">
-      <div className="mx-auto md:px-16 px-4 md:py-16 py-4">
+      <div className="mx-auto page-width md:pt-20 pt-6">
         {/* Heading */}
         <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-semibold text-slate-900">
+          <h2 className="heading">
             Get In Touch
           </h2>
           <p className="mt-3 text-slate-600 text-lg leading-relaxed">

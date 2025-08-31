@@ -9,11 +9,11 @@ export default function Certification() {
   ];
 
   return (
-    <section className="py-20 bg-white">
-      <div className="container mx-auto px-4">
+    <section className="md:pt-20 pt-6 bg-white">
+      <div className=" page-width">
         {/* Heading */}
         <div className="text-center mb-12">
-          <h2 className="text-2xl md:text-3xl font-semibold">
+          <h2 className="heading ">
             STRATEGIC ALLIANCES
           </h2>
         </div>

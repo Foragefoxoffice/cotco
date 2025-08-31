@@ -193,7 +193,7 @@ const Form = () => {
 
   return (
     <section className="bg-white">
-      <div className="mx-auto md:px-16 md:py-8 px-4 py-4">
+      <div className="mx-auto page-width md:pt-20 pt-6">
         <div
           ref={firstErrorRef}
           className="rounded-2xl ring-1 ring-slate-200 bg-white p-6 md:p-8 [box-shadow:rgba(0,0,0,0.1)_0px_1px_3px_0px,rgba(0,0,0,0.06)_0px_1px_2px_0px]"

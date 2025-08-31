@@ -74,7 +74,7 @@ export default function NewsEventsSection() {
       style={{
         background: "linear-gradient(122.81deg, #91B2CD 0%, #041A34 30%)",
       }}
-      className="text-white py-30 px-4 md:px-16 newsLetter"
+      className="text-white py-30 page-width newsLetter"
     >
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl font-semibold text-center mb-2">NEWS & EVENTS</h2>

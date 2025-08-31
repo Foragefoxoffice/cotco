@@ -6,6 +6,7 @@
 
 @import "tailwindcss";
 
+
 /* ----------------------------------
    Custom Global Styles for MedAgg
 ---------------------------------- */
@@ -21,6 +22,7 @@
 
 body {
   font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
 }
 
 
@@ -49,7 +51,7 @@ a {
 /* styles.css or global.css */
 .outlined-text {
   color: transparent;
-  -webkit-text-stroke: 1px #0A4A78;
+  -webkit-text-stroke: 1px #0A4A78 ;
   transition: all 0.3s ease-in-out;
 }
 
@@ -57,4 +59,53 @@ a {
    color: transparent;
   -webkit-text-stroke: 1px #ffffff !important;
   -webkit-text-stroke: 0;
+}
+
+.hero {
+  @apply mt-0;
+}
+
+/* When Vietnamese is active */
+body.vi-mode .hero {
+  margin-top: -50px; 
+}
+
+/* ================================
+   Single responsive container
+   ================================ */
+.page-width {
+  width: 100%;
+  max-width: 1440px;        
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;         
+  padding-right: 16px;
+}
+.heading {
+  @apply md:text-4xl text-3xl text-[#121E2B] font-bold;
+}
+/* increase side padding at breakpoints */
+@media (min-width: 640px) {   /* sm */
+  .page-width { padding-left: 20px; padding-right: 20px; }
+}
+@media (min-width: 1024px) {  /* lg */
+  .page-width { padding-left: 32px; padding-right: 32px; }
+}
+
+/* optional staged max-widths (like your Tailwind plan) */
+@media (min-width: 768px) {   /* md */
+  .page-width { max-width: 720px; }
+}
+@media (min-width: 1024px) {  /* lg */
+  .page-width { max-width: 960px; }
+}
+@media (min-width: 1200px) {  /* xl */
+  .page-width { max-width: 1200px; }
+}
+@media (min-width: 1440px) {  /* 2xl */
+  .page-width { max-width: 1360px; }
+}
+
+@media (min-width: 1600px) {  /* 3xl */
+  .page-width { max-width: 1600px; }
 }

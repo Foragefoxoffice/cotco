@@ -57,9 +57,9 @@ export default function WhyChooseViscose() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="bg-white pb-16 px-4 md:px-20">
+    <section className="bg-white py-6 md:py-20 page-width">
       <div className="mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2">
+        <h2 className="heading -900 mb-2">
           WHY CHOOSE VISCOSE FIBER?
         </h2>
         <p className="text-gray-600 mb-10">

@@ -2,11 +2,11 @@ import React from "react";
 
 export default function CottonTrustSection() {
   return (
-    <section className="py-16 px-6 md:px-20 bg-white">
+    <section className="pt-20 page-width bg-white">
       <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-10">
         {/* Left Text + Logos */}
         <div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="heading mb-4">
             GROW IN TRUST, QUALITY<br className="hidden md:block" /> AND SERVICE
           </h2>
           <p className="text-gray-600 mb-6 max-w-lg">
