@@ -1,5 +1,6 @@
 import React from "react";
 import { FiArrowDownRight } from "react-icons/fi";
+import TitleAnimation from "../common/AnimatedTitle";
 const categories = [
   {
     title: "COTTON",
@@ -27,9 +28,15 @@ export default function ProductShowcase() {
       <div className=" mx-auto grid md:grid-cols-6 gap-10">
      
         <div className="w-full col-span-3 place-content-center">
-          <h2 className="heading mb-4">
-            WHAT WE DO?
-          </h2>
+       
+           <TitleAnimation
+            text={"WHAT WE DO?"}
+            className="heading mb-4"
+            align="left"
+            delay={0.1}
+        stagger={0.05}   // slower/faster per letter
+        once={true}
+      />
           <p className="text-lg text-gray-600">
             Explore our complete range of premium cotton, <br />
             sustainable fibers, and advanced textile machines

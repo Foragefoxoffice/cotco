@@ -3,47 +3,6 @@ import { useState } from "react";
 import { FiPlus} from "react-icons/fi";
 const TEAM_SECTIONS = [
   {
-    title: "Cotton",
-    members: [
-      {
-        name: "Maria",
-        role: "Cotton Trader",
-        phone: "+84 934 110 120",
-        email: "maria@cotco-vn.com",
-      },
-      {
-        name: "Lisa",
-        role: "Cotton Trader",
-        phone: "+84 913 796 683",
-        email: "lisa@cotco-vn.com",
-      },
-      {
-        name: "Memole",
-        role: "Cotton Trader",
-        phone: "+84 909 234 906",
-        email: "nganhth@cotco-vn.com",
-      },
-      {
-        name: "Martin",
-        role: "Cotton Trader",
-        phone: "+84 984 557 888",
-        email: "nganhth@cotco-vn.com",
-      },
-      {
-        name: "Giao",
-        role: "Logistics Executive",
-        phone: "+84 943 447 973",
-        email: "giao@cotco-vn.com",
-      },
-      {
-        name: "Christ",
-        role: "Logistics Executive",
-        phone: "+84 943 447 973",
-        email: "trihong@cotcousa.com",
-      },
-    ],
-  },
-  {
     title: "Machine",
     members: [
       {
@@ -78,23 +37,7 @@ const TEAM_SECTIONS = [
       },
     ],
   },
-  {
-    title: "Fibre",
-    members: [
-      {
-        name: "Sohpie",
-        role: "Sales Manager",
-        phone: "+84 969 003 600",
-        email: "sophie@cotco-vn.com",
-      },
-      {
-        name: "Max",
-        role: "Logistics Executive",
-        phone: "+84 965 647 670",
-        email: "anpham@cotco-vn.com",
-      },
-    ],
-  },
+
   {
     title: "Marketing",
     members: [
@@ -113,7 +56,7 @@ const TEAM_SECTIONS = [
     ],
   },
   {
-    title: "Director",
+    title: "general contact",
     members: [
       { name: "Huan", role: "CEO", email: "huan@cotco-vn.com" },
       { name: "Hiep", role: "CFO", email: "hiep@cotco-vn.com" },
@@ -165,13 +108,12 @@ export default function MeetOurTeam() {
         {/* Header */}
         <div className="text-center">
           <span className="mx-auto mb-3 inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-[11px] font-medium text-slate-600">
-            Our people
+           Contact
           </span>
-          <h2 className="heading uppercase">Meet our team</h2>
+          <h2 className="heading uppercase">Get In Touch</h2>
           <p className="mx-auto mt-3 max-w-3xl text-[16px] leading-relaxed text-slate-500 md:text-[16px]">
-            Our experienced professionals combine deep textile industry
-            knowledge with international trade expertise, ensuring seamless
-            transactions and technical support for our clients.
+           We're here to assist you with any inquiries about our cotton, fibre, or
+machinery products.
           </p>
         </div>
 

@@ -1,5 +1,6 @@
 import React from "react";
 import { FiArrowDownRight } from "react-icons/fi";
+import TitleAnimation from "../common/AnimatedTitle";
 const WhoWeAreSection = () => {
   return (
     <section className="w-full  bg-white page-width md:pt-20 pt-6">
@@ -15,9 +16,15 @@ const WhoWeAreSection = () => {
 
         {/* Right Side - Text */}
         <div className="w-full md:w-1/2  md:text-left">
-          <h2 className="heading mb-4">
-            WHO WE ARE<span>?</span>
-          </h2>
+          <TitleAnimation
+            text={"WHO WE ARE?"}
+            className="heading"
+            align="left"
+            delay={0.1}
+        stagger={0.05}   // slower/faster per letter
+        once={true}
+      />
+
           <p className="text-gray-600 text-base md:text-lg mb-6 leading-relaxed">
             From Raw Materials to Technology<br />
             Our Journey to Elevate the Value of Textiles<br />

@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-
+import TitleAnimation from "../common/AnimatedTitle";
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
   visible: {
@@ -29,7 +29,14 @@ export default function CoreValuesSection() {
     variants={fadeInUp}
     className="relative bg-[#edf3fb] rounded-xl md:p-20 p-6 flex items-center justify-center text-center order-1"
   >
-    <h2 className="heading">CORE VALUES</h2>
+     <TitleAnimation
+            text={"CORE VALUES"}
+            className="heading"
+            align="left"
+            delay={0.1}
+        stagger={0.05}   // slower/faster per letter
+        once={true}
+      />
   </motion.div>
 
   {/* 2. Image (Placed right after Core Values in mobile) */}

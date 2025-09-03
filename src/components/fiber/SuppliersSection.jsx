@@ -2,10 +2,7 @@ import React, { useEffect, useState } from "react";
 
 const logos = [
   "/img/fiber/aditya.png",
-  "/img/cotton/suppliers/louis_logo.png",
-  "/img/cotton/suppliers/ecom_logo.png",
-  "/img/cotton/suppliers/devcot_logo.png",
-  "/img/fiber/aditya.png",
+  "/img/fiber/products/birla.png",
 ];
 
 export default function SupplierSection() {

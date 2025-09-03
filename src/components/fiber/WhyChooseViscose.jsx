@@ -116,7 +116,7 @@ export default function WhyChooseViscose() {
                 <div className={`absolute inset-0  transition-opacity duration-700 group-hover:opacity-0 ${isActive ? "bg-transparent" : "  bg-[#11456C]"}`}></div>
 
                 <div className="relative z-10 p-6 text-left text-white flex flex-col justify-end h-full transition-all duration-700">
-                  <div className="text-2xl text-blue-300 mb-2">{feature.icon}</div>
+                  <div className="text-2xl text-white mb-2 bg-[#11456C]/80 w-8 h-8 flex items-center justify-center rounded-full p-2">{feature.icon}</div>
                   <h4 className="font-semibold text-lg">{feature.title}</h4>
                   <div
                     className={`overflow-hidden transition-all duration-700 ease-out ${

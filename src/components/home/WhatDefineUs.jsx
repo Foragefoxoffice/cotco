@@ -1,6 +1,6 @@
 import React from "react";
 import { TbCheckbox } from "react-icons/tb";
-
+import TitleAnimation from "../common/AnimatedTitle";
 const WhatDefineUs = () => {
   const ITEMS = [
     {
@@ -38,10 +38,18 @@ const WhatDefineUs = () => {
   return (
     <section className=" page-width bg-white rounded-md md:pt-20 pt-6 ">
       <div className="bg-[var(--secondary)] rounded-2xl md:py-16 p-6 md:px-22">
-        <h2 className="text-center heading mb-8 " style={{color:'white'}}>
-          WHAT DEFINES US
-        </h2>
+        <h2 className="text-center heading mb-8" style={{color:'white'}}>
 
+        <TitleAnimation
+            text={"WHAT DEFINES US"}
+            className="text-white md:text-4xl text-3xl font-bold mb-8"
+            align="center"
+            delay={0.1}
+        stagger={0.05}   // slower/faster per letter
+        once={true}
+        
+      />
+      </h2>
         <div className="grid gap-5 sm:gap-6 md:gap-7 grid-cols-1 sm:grid-cols-2 lg:grid-cols-2">
           {ITEMS.map((item, i) => (
             <article

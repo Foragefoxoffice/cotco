@@ -17,7 +17,7 @@ export default function ProductsHero() {
     const checkIfMobile = () => setIsMobile(window.innerWidth < 768);
     checkIfMobile();
     window.addEventListener("resize", checkIfMobile);
-    
+
     const handleScroll = () => {
       if (window.scrollY > 10) {
         setScrolled(true);
@@ -26,7 +26,7 @@ export default function ProductsHero() {
       }
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
-    
+
     return () => {
       window.removeEventListener("resize", checkIfMobile);
       window.removeEventListener("scroll", handleScroll);
@@ -109,7 +109,9 @@ export default function ProductsHero() {
       {/* Video Section with Scroll Effect */}
       <motion.div
         initial={{ scale: 1, opacity: 1 }}
-        animate={scrolled ? { scale: 0.89, opacity: 0.9 } : { scale: 1, opacity: 1 }}
+        animate={
+          scrolled ? { scale: 0.89, opacity: 0.9 } : { scale: 1, opacity: 1 }
+        }
         transition={{ duration: 0.6, ease: "easeOut" }}
         className={`relative z-10 transition-all duration-500 ease-out ${
           scrolled ? "rounded-2xl shadow-2xl" : ""
@@ -122,20 +124,20 @@ export default function ProductsHero() {
           animate="visible"
           variants={heroVariants}
         >
-        <div className="absolute z-10 bottom-[190px] left-6 md:left-15">
-          <motion.h1
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-8xl uppercase text-white font-bold cotton-section-heading"
-          >
-            products
-          </motion.h1>
-          {/* <p className="text-white text-xl pl-6.5 pt-3 cotton-section-subheading">
+          <div className="absolute z-10 bottom-[190px] left-6 md:left-15">
+            <motion.h1
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="text-8xl uppercase text-white font-bold cotton-section-heading"
+            >
+              products
+            </motion.h1>
+            {/* <p className="text-white text-xl pl-6.5 pt-3 cotton-section-subheading">
             Empowering Vietnam’s Textile Industry Since 2016
           </p> */}
-        </div>
-          
+          </div>
+
           {/* Desktop Video */}
           <motion.video
             autoPlay
@@ -147,7 +149,11 @@ export default function ProductsHero() {
             whileHover={{ scale: 1.01 }}
             transition={{ duration: 0.3 }}
           />
-          <div className={`absolute inset-0 bg-black/20 z-10 ${scrolled ? "rounded-3xl " : "rounded-none"}`} />
+          <div
+            className={`absolute inset-0 bg-black/20 z-10 ${
+              scrolled ? "rounded-3xl " : "rounded-none"
+            }`}
+          />
           {/* Mobile Fullscreen Video */}
           <div className="relative w-full h-screen block md:hidden">
             <motion.video
@@ -164,90 +170,18 @@ export default function ProductsHero() {
         </motion.div>
       </motion.div>
 
-      {/* Text + Info Section (unaffected by scroll) */}
-    <div
-  ref={ref}
-  className="page-width m d:pt-14 pt-6 mx-auto items-center relative"
->
-      <motion.p
-      className="text-[#4B4B4B] mb-6 md:pb-10 pb-3 products-description"
-      variants={paragraphVariants}
-    >
-      With an agreement signed in 2022, COTCO became the official agent of
-      Lakshmi Machine Works (LMW), India's largest textile machinery
-      manufacturer, for Vietnam's spinning mills, including export-oriented
-      factories from Korea, Taiwan, China, etc. LMW is one of the few companies
-      worldwide capable of manufacturing a complete range of spinning machinery,
-      from blowroom systems to ring frames, providing integrated solutions for
-      various applications and processing diverse raw materials.
-    </motion.p>
-    </div>
-  <div className=" mx-auto mt-10 md:mt-0 mb-20 grid md:grid-cols-2  items-start">
-
-  {/* Right Column: Image shown first on mobile */}
-  <motion.div
-    className="flex justify-center items-center order-1 md:order-2 z-10 md:-ml-16"
-    initial={{ opacity: 0, scale: 0.9 }}
-    animate={{
-      opacity: 1,
-      scale: 1,
-      transition: { delay: 0.4, duration: 0.8 },
-    }}
-  >
-    <SlideIn direction="right">
-      <img
-        src="/img/products/hero.png"
-        alt="LMW Machine"
-        className="w-full max-w-[440px] h-auto ml-[-20%] z-20 object-cover rounded-xl"
-      />
-    </SlideIn>
-  </motion.div>
-
-
-
-
-  {/* Left Column: Blue panel with title + bullets */}
-  <motion.div
-    initial="hidden"
-    animate={textControls}
-    variants={textVariants}
-    className="order-2 md:order-1"
-  >
-    
-
-    {/* Navy card */}
-    <motion.div
-      variants={paragraphVariants}
-      className="relative bg-[#11456C] text-white  p-6 md:p-10 shadow-lg md:pr-24"
-    >
-      {/* angled right edge */}
-      <div
-        aria-hidden
-        className="hidden md:block absolute top-0 right-0 h-full w-24 bg-[#11456C] -skew-x-12 translate-x-10"
-      />
-
-      <h3 className="uppercase heading tracking-wide mb-5" style={{ color: "#FFFFFF" }}>
-        Customer Benefits
-      </h3>
-
-      <ul className="list-disc pl-5 marker:text-white space-y-2 text-[15px] leading-relaxed">
-        <li>Lower production costs &amp; improved quality standards.</li>
-        <li>
-          Genuine spare parts at competitive prices to optimize equipment
-          reliability.
-        </li>
-        <li>Guaranteed machine quality &amp; performance.</li>
-        <li>Precise interaction between machinery components.</li>
-        <li>
-          Smart tech applications for automated production, offering efficient
-          management solutions.
-        </li>
-        <li>Global footprint with strong after-sales service.</li>
-      </ul>
-    </motion.div>
-  </motion.div>
-</div>
-
+      <div className=" mx-auto grid md:grid-cols-2  items-start">
+        {/* Right Column: Image shown first on mobile */}
+        <motion.div
+          className="flex justify-center items-center order-1 md:order-2 z-10 md:-ml-16"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{
+            opacity: 1,
+            scale: 1,
+            transition: { delay: 0.4, duration: 0.8 },
+          }}
+        ></motion.div>
+      </div>
     </section>
   );
 }

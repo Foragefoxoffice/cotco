@@ -69,7 +69,7 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex items-center gap-2 font-bold text-xl text-blue-700">
             <Link to="/">
-              <img src="/logo/logo.png" alt="Logo" className="h-14 w-auto" />
+              <img src="/logo/logo.svg" alt="Logo" className="h-14 w-auto" />
             </Link>
           </div>
 

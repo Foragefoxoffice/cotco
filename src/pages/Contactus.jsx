@@ -5,6 +5,7 @@ import HeroSection from "../components/contactus/HeroSection";
 import GetinTouch from "../components/contactus/GetinTouch";
 import Form from "../components/contactus/Form";
 import ContactMap from "../components/contactus/ContactMap";
+import MeetOurTeam from "../components/contactus/OurTeam";
 import ContactToday from "../components/common/ContactToday";
 import Footer from "../components/layout/Footer";
 
@@ -13,8 +14,9 @@ const Contactus = () => {
     <div>
       <Navbar />
       <HeroSection />
-      <GetinTouch />
+      <MeetOurTeam />
       <Form />
+      <GetinTouch />
       <ContactMap />
       <ContactToday />
       <Footer />

@@ -1,6 +1,34 @@
 import React, { useState, useRef } from "react";
 
-const Form = () => {
+/** ---------- Left + Right Layout ---------- */
+export default function ContactSection() {
+  return (
+    <section className="bg-white">
+      <div className="mx-auto page-width md:pt-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10 items-stretch">
+          {/* LEFT: Image Card */}
+          <div className="relative rounded-2xl overflow-hidden ring-1 ring-black/5 shadow-sm min-h-[520px] sm:aspect-[4/5] lg:aspect-auto">
+            {/* If using Next.js Image, replace <img> with <Image fill /> */}
+            <img
+              src="/img/about/contact.png"
+              alt="Cotton picking"
+              className="absolute inset-0 h-full w-full object-cover"
+              loading="lazy"
+            />
+          </div>
+
+          {/* RIGHT: Form Card */}
+          <div className="rounded-2xl ring-1 ring-slate-200 bg-white p-6 md:p-8 shadow-sm">
+            <ContactForm />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/** ---------- Your Form (unchanged logic, styled for the card) ---------- */
+function ContactForm() {
   const [values, setValues] = useState({
     name: "",
     company: "",
@@ -40,7 +68,6 @@ const Form = () => {
   const validateEmail = (v) => {
     const val = v.trim();
     if (!val) return "Email is required.";
-    // RFC 5322-lite
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(val))
       return "Enter a valid email address.";
     return "";
@@ -50,7 +77,6 @@ const Form = () => {
     const val = v.trim();
     if (!val) return "Phone is required.";
     const digits = val.replace(/\D/g, "");
-    // India-friendly, but permissive: 10 digits (starts 6-9) or +91xxxxxxxxxx
     const isIN10 = digits.length === 10 && /^[6-9]/.test(digits);
     const isIN91 = digits.length === 12 && digits.startsWith("91");
     const genericOK = digits.length >= 7 && digits.length <= 15;
@@ -68,8 +94,8 @@ const Form = () => {
   };
 
   const validateFile = (file) => {
-    if (!file) return ""; // optional
-    const maxSize = 5 * 1024 * 1024; // 5MB
+    if (!file) return "";
+    const maxSize = 5 * 1024 * 1024;
     const okTypes = [
       "application/pdf",
       "application/msword",
@@ -137,7 +163,6 @@ const Form = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // mark all as touched
     setTouched({
       name: true,
       company: true,
@@ -152,7 +177,6 @@ const Form = () => {
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length) {
-      // focus first error field
       const firstKey = [
         "name",
         "company",
@@ -163,7 +187,9 @@ const Form = () => {
         "file",
       ].find((k) => newErrors[k]);
       if (firstKey) {
-        firstErrorRef.current?.querySelector(`[name="${firstKey}"]`)?.focus();
+        firstErrorRef.current
+          ?.querySelector(`[name="${firstKey}"]`)
+          ?.focus();
       }
       return;
     }
@@ -192,225 +218,206 @@ const Form = () => {
   };
 
   return (
-    <section className="bg-white">
-      <div className="mx-auto page-width md:pt-20 pt-6">
+    <div ref={firstErrorRef}>
+      <h3 className="text-xl font-semibold text-slate-900">Send Us a Message</h3>
+
+      {success && (
         <div
-          ref={firstErrorRef}
-          className="rounded-2xl ring-1 ring-slate-200 bg-white p-6 md:p-8 [box-shadow:rgba(0,0,0,0.1)_0px_1px_3px_0px,rgba(0,0,0,0.06)_0px_1px_2px_0px]"
+          className={`mt-4 rounded-lg border px-4 py-3 text-sm ${
+            success.startsWith("✅")
+              ? "border-green-200 bg-green-50 text-green-700"
+              : "border-red-200 bg-red-50 text-red-700"
+          }`}
+          role="status"
+          aria-live="polite"
         >
-          <h3 className="text-xl font-semibold text-slate-900">
-            Send Us a Message
-          </h3>
-
-          {success && (
-            <div
-              className={`mt-4 rounded-lg border px-4 py-3 text-sm ${
-                success.startsWith("✅")
-                  ? "border-green-200 bg-green-50 text-green-700"
-                  : "border-red-200 bg-red-50 text-red-700"
-              }`}
-              role="status"
-              aria-live="polite"
-            >
-              {success}
-            </div>
-          )}
-
-          <form className="mt-6 space-y-8" noValidate onSubmit={handleSubmit}>
-            {/* Row 1 */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-sm text-slate-700">
-                  Name <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  value={values.name}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  className={getFieldClass("name")}
-                  aria-invalid={!!(errors.name && touched.name)}
-                  aria-describedby={
-                    errors.name && touched.name ? "name-error" : undefined
-                  }
-                  required
-                />
-                {errors.name && touched.name && (
-                  <p id="name-error" className="mt-2 text-xs text-red-600">
-                    {errors.name}
-                  </p>
-                )}
-              </div>
-              <div>
-                <label className="block text-sm text-slate-700">Company</label>
-                <input
-                  type="text"
-                  name="company"
-                  value={values.company}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  className={baseFieldClass}
-                />
-              </div>
-            </div>
-
-            {/* Row 2 */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-sm text-slate-700">
-                  Email <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  value={values.email}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  className={getFieldClass("email")}
-                  aria-invalid={!!(errors.email && touched.email)}
-                  aria-describedby={
-                    errors.email && touched.email ? "email-error" : undefined
-                  }
-                  required
-                />
-                {errors.email && touched.email && (
-                  <p id="email-error" className="mt-2 text-xs text-red-600">
-                    {errors.email}
-                  </p>
-                )}
-              </div>
-              <div>
-                <label className="block text-sm text-slate-700">
-                  Phone <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="tel"
-                  name="phone"
-                  value={values.phone}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  className={getFieldClass("phone")}
-                  aria-invalid={!!(errors.phone && touched.phone)}
-                  aria-describedby={
-                    errors.phone && touched.phone ? "phone-error" : undefined
-                  }
-                  required
-                />
-                {errors.phone && touched.phone && (
-                  <p id="phone-error" className="mt-2 text-xs text-red-600">
-                    {errors.phone}
-                  </p>
-                )}
-              </div>
-            </div>
-
-            {/* Product Interest */}
-            <div>
-              <label className="block text-sm text-slate-700">
-                Product Interest <span className="text-red-500">*</span>
-              </label>
-              <select
-                name="product"
-                value={values.product}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                className={`${getFieldClass("product")} h-12`}
-                aria-invalid={!!(errors.product && touched.product)}
-                aria-describedby={
-                  errors.product && touched.product
-                    ? "product-error"
-                    : undefined
-                }
-                required
-              >
-                <option value="">Select an option</option>
-                <option value="cotton">Cotton</option>
-                <option value="viscose">Viscose</option>
-                <option value="machinery">Machinery</option>
-              </select>
-              {errors.product && touched.product && (
-                <p id="product-error" className="mt-2 text-xs text-red-600">
-                  {errors.product}
-                </p>
-              )}
-            </div>
-
-            {/* Message */}
-            <div>
-              <label className="block text-sm text-slate-700">
-                Message/Inquiry Details <span className="text-red-500">*</span>
-              </label>
-              <textarea
-                name="message"
-                value={values.message}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                className={`${getFieldClass(
-                  "message"
-                )} h-36 resize-none leading-6`}
-                aria-invalid={!!(errors.message && touched.message)}
-                aria-describedby={
-                  errors.message && touched.message
-                    ? "message-error"
-                    : undefined
-                }
-                required
-              />
-              {errors.message && touched.message && (
-                <p id="message-error" className="mt-2 text-xs text-red-600">
-                  {errors.message}
-                </p>
-              )}
-            </div>
-
-            {/* File upload */}
-            <div>
-              <label className="block text-sm text-slate-700">
-                Upload Specifications (Optional)
-              </label>
-              <input
-                name="file"
-                type="file"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                className="mt-3 block w-full text-sm text-slate-600
-                           file:mr-4 file:py-2.5 file:px-4
-                           file:rounded-md file:border-0
-                           file:text-sm file:font-medium
-                           file:bg-slate-100 file:text-slate-700
-                           hover:file:bg-slate-200"
-                aria-invalid={!!(errors.file && touched.file)}
-                aria-describedby={
-                  errors.file && touched.file ? "file-error" : undefined
-                }
-                accept=".pdf,.doc,.docx,.png,.jpg,.jpeg"
-              />
-              {errors.file && touched.file && (
-                <p id="file-error" className="mt-2 text-xs text-red-600">
-                  {errors.file}
-                </p>
-              )}
-              {values.file && !errors.file && (
-                <p className="mt-2 text-xs text-slate-500">
-                  Selected: {values.file.name}
-                </p>
-              )}
-            </div>
-
-            {/* Submit */}
-            <button
-              type="submit"
-              disabled={submitting}
-              className="w-full rounded-lg bg-[#0E3A5B] hover:bg-[#0B2F49] disabled:opacity-70 disabled:cursor-not-allowed text-white text-[15px] font-medium py-3.5 cursor-pointer"
-            >
-              {submitting ? "Sending..." : "Send Message"}
-            </button>
-          </form>
+          {success}
         </div>
-      </div>
-    </section>
-  );
-};
+      )}
 
-export default Form;
+      <form className="mt-6 space-y-8" noValidate onSubmit={handleSubmit}>
+        {/* Row 1 */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label className="block text-sm text-slate-700">
+              Name <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              name="name"
+              value={values.name}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              className={getFieldClass("name")}
+              aria-invalid={!!(errors.name && touched.name)}
+              aria-describedby={
+                errors.name && touched.name ? "name-error" : undefined
+              }
+              required
+            />
+            {errors.name && touched.name && (
+              <p id="name-error" className="mt-2 text-xs text-red-600">
+                {errors.name}
+              </p>
+            )}
+          </div>
+          <div>
+            <label className="block text-sm text-slate-700">Company</label>
+            <input
+              type="text"
+              name="company"
+              value={values.company}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              className={baseFieldClass}
+            />
+          </div>
+        </div>
+
+        {/* Row 2 */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label className="block text-sm text-slate-700">
+              Email <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="email"
+              name="email"
+              value={values.email}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              className={getFieldClass("email")}
+              aria-invalid={!!(errors.email && touched.email)}
+              aria-describedby={
+                errors.email && touched.email ? "email-error" : undefined
+              }
+              required
+            />
+            {errors.email && touched.email && (
+              <p id="email-error" className="mt-2 text-xs text-red-600">
+                {errors.email}
+              </p>
+            )}
+          </div>
+          <div>
+            <label className="block text-sm text-slate-700">
+              Phone <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="tel"
+              name="phone"
+              value={values.phone}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              className={getFieldClass("phone")}
+              aria-invalid={!!(errors.phone && touched.phone)}
+              aria-describedby={
+                errors.phone && touched.phone ? "phone-error" : undefined
+              }
+              required
+            />
+            {errors.phone && touched.phone && (
+              <p id="phone-error" className="mt-2 text-xs text-red-600">
+                {errors.phone}
+              </p>
+            )}
+          </div>
+        </div>
+
+        {/* Product Interest */}
+        <div>
+          <label className="block text-sm text-slate-700">
+            Product Interest <span className="text-red-500">*</span>
+          </label>
+          <select
+            name="product"
+            value={values.product}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            className={`${getFieldClass("product")} h-12`}
+            aria-invalid={!!(errors.product && touched.product)}
+            aria-describedby={
+              errors.product && touched.product ? "product-error" : undefined
+            }
+            required
+          >
+            <option value="">Select an option</option>
+            <option value="cotton">Cotton</option>
+            <option value="viscose">Viscose</option>
+            <option value="machinery">Machinery</option>
+          </select>
+          {errors.product && touched.product && (
+            <p id="product-error" className="mt-2 text-xs text-red-600">
+              {errors.product}
+            </p>
+          )}
+        </div>
+
+        {/* Message */}
+        <div>
+          <label className="block text-sm text-slate-700">
+            Message/Inquiry Details <span className="text-red-500">*</span>
+          </label>
+          <textarea
+            name="message"
+            value={values.message}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            className={`${getFieldClass("message")} h-36 resize-none leading-6`}
+            aria-invalid={!!(errors.message && touched.message)}
+            aria-describedby={
+              errors.message && touched.message ? "message-error" : undefined
+            }
+            required
+          />
+          {errors.message && touched.message && (
+            <p id="message-error" className="mt-2 text-xs text-red-600">
+              {errors.message}
+            </p>
+          )}
+        </div>
+
+        {/* File upload */}
+        <div>
+          <label className="block text-sm text-slate-700">
+            Upload Specifications (Optional)
+          </label>
+          <input
+            name="file"
+            type="file"
+            onChange={handleChange}
+            onBlur={handleBlur}
+            className="mt-3 block w-full text-sm text-slate-600
+                       file:mr-4 file:py-2.5 file:px-4
+                       file:rounded-md file:border-0
+                       file:text-sm file:font-medium
+                       file:bg-slate-100 file:text-slate-700
+                       hover:file:bg-slate-200"
+            aria-invalid={!!(errors.file && touched.file)}
+            aria-describedby={errors.file && touched.file ? "file-error" : undefined}
+            accept=".pdf,.doc,.docx,.png,.jpg,.jpeg"
+          />
+          {errors.file && touched.file && (
+            <p id="file-error" className="mt-2 text-xs text-red-600">
+              {errors.file}
+            </p>
+          )}
+          {values.file && !errors.file && (
+            <p className="mt-2 text-xs text-slate-500">
+              Selected: {values.file.name}
+            </p>
+          )}
+        </div>
+
+        {/* Submit */}
+        <button
+          type="submit"
+          disabled={submitting}
+          className="w-full rounded-lg bg-[#0E3A5B] hover:bg-[#0B2F49] disabled:opacity-70 disabled:cursor-not-allowed text-white text-[15px] font-medium py-3.5 cursor-pointer"
+        >
+          {submitting ? "Sending..." : "Send Message"}
+        </button>
+      </form>
+    </div>
+  );
+}

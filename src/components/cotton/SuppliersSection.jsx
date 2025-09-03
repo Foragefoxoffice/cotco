@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import clsx from "clsx";
 
+/* ---------- DATA ---------- */
 const suppliers = [
   {
     name: "Louis Dreyfus Company (LDC)",
@@ -35,7 +36,6 @@ const suppliers = [
     logo: "/img/cotton/suppliers/ecom_logo.png",
     background: "/img/cotton/suppliers/ecom-bg.jpg",
     content: [
-      "Founded: 1849, Switzerland",
       "Founded: 1849, Switzerland",
       "One of the oldest and most reputable companies in the international cotton industry",
       "Procures and distributes a large volume of diverse cotton from the USA, Brazil, India, and Africa",
@@ -84,107 +84,110 @@ const suppliers = [
   },
 ];
 
+/* ---------- COMPONENT ---------- */
 export default function SuppliersSection() {
   const [index, setIndex] = useState(0);
 
-  // Refs to avoid stale closures inside event listeners
+  // refs
   const sectionRef = useRef(null);
-  const touchStartYRef = useRef(null);
-  const lockRef = useRef(false);
   const indexRef = useRef(0);
+  const wheelIdleTimer = useRef(null);
+  const gestureActive = useRef(false);
+  const touchStartY = useRef(null);
 
-  // Keep indexRef in sync with state
   useEffect(() => {
     indexRef.current = index;
   }, [index]);
 
-  const clampIndex = (next) => {
-    if (next < 0) return 0;
-    if (next > suppliers.length - 1) return suppliers.length - 1;
-    return next;
+  const clamp = (n) => Math.max(0, Math.min(n, suppliers.length - 1));
+  const atStart = () => indexRef.current === 0;
+  const atEnd = () => indexRef.current === suppliers.length - 1;
+
+  const goNext = () => {
+    const next = clamp(indexRef.current + 1);
+    if (next !== indexRef.current) {
+      indexRef.current = next;
+      setIndex(next);
+    }
+  };
+  const goPrev = () => {
+    const prev = clamp(indexRef.current - 1);
+    if (prev !== indexRef.current) {
+      indexRef.current = prev;
+      setIndex(prev);
+    }
   };
 
-  const isSectionPinned = () => {
+  const isPinned = () => {
     const el = sectionRef.current;
     if (!el) return false;
     const b = el.getBoundingClientRect();
-    return b.top <= 0 && b.bottom >= window.innerHeight;
+    const vh = window.innerHeight || document.documentElement.clientHeight;
+    // "pinned" while sticky child is occupying the viewport
+    return b.top <= 0 && b.bottom - 1 >= vh;
   };
 
   useEffect(() => {
-    const SNAP_LOCK_MS = 600;
+    const WHEEL_IDLE_MS = 260; // swallows momentum into one step
     const SWIPE_THRESHOLD = 30; // px
 
-    const lock = () => {
-      lockRef.current = true;
-      setTimeout(() => {
-        lockRef.current = false;
-      }, SNAP_LOCK_MS);
-    };
-
-    const goNext = () => {
-      const next = clampIndex(indexRef.current + 1);
-      if (next !== indexRef.current) {
-        setIndex(next);
-        indexRef.current = next;
-      }
-    };
-
-    const goPrev = () => {
-      const prev = clampIndex(indexRef.current - 1);
-      if (prev !== indexRef.current) {
-        setIndex(prev);
-        indexRef.current = prev;
-      }
+    const startIdle = () => {
+      if (wheelIdleTimer.current) clearTimeout(wheelIdleTimer.current);
+      wheelIdleTimer.current = setTimeout(() => {
+        gestureActive.current = false;
+      }, WHEEL_IDLE_MS);
     };
 
     const onWheel = (e) => {
-      if (lockRef.current) return;
-      if (!isSectionPinned()) return;
+      if (!isPinned()) return;
 
-      // prevent page scroll while snapping
-      e.preventDefault();
-      lock();
+      const dir = Math.sign(e.deltaY); // 1 down, -1 up
+      const canMoveInside = (dir > 0 && !atEnd()) || (dir < 0 && !atStart());
 
-      if (e.deltaY > 0) goNext();
-      else if (e.deltaY < 0) goPrev();
+      if (canMoveInside) {
+        e.preventDefault(); // capture scroll inside section
+        if (!gestureActive.current) {
+          gestureActive.current = true;
+          dir > 0 ? goNext() : goPrev();
+        }
+        startIdle();
+      } else {
+        // At boundary; release to page by NOT preventing default
+      }
     };
 
     const onTouchStart = (e) => {
-      if (!isSectionPinned()) return;
-      touchStartYRef.current = e.touches[0].clientY;
-      // don't prevent default here
+      if (!isPinned()) return;
+      touchStartY.current = e.touches[0].clientY;
     };
 
     const onTouchMove = (e) => {
-      if (lockRef.current) return;
-      if (!isSectionPinned()) return;
-      if (touchStartYRef.current == null) return;
+      if (!isPinned()) return;
+      if (touchStartY.current == null) return;
 
-      const currentY = e.touches[0].clientY;
-      const dy = touchStartYRef.current - currentY; // swipe up = positive
-
+      const y = e.touches[0].clientY;
+      const dy = touchStartY.current - y; // swipe up = positive
       if (Math.abs(dy) < SWIPE_THRESHOLD) return;
 
-      // prevent the page from scrolling while we snap
-      e.preventDefault();
-      lock();
+      const dir = Math.sign(dy);
+      const canMoveInside = (dir > 0 && !atEnd()) || (dir < 0 && !atStart());
 
-      if (dy > 0) goNext(); // swipe up → next
-      else goPrev();        // swipe down → prev
-
-      // reset anchor so continuous swipe can progress item by item
-      touchStartYRef.current = currentY;
+      if (canMoveInside) {
+        e.preventDefault(); // passive:false below
+        if (!gestureActive.current) {
+          gestureActive.current = true;
+          dir > 0 ? goNext() : goPrev();
+        }
+        touchStartY.current = y; // allow progressive swipes
+        startIdle();
+      } // else let page scroll
     };
 
-    // Desktop: wheel on window so it catches scroll while pinned
     window.addEventListener("wheel", onWheel, { passive: false });
-
-    // Mobile: touch on the section itself
     const sec = sectionRef.current;
     if (sec) {
       sec.addEventListener("touchstart", onTouchStart, { passive: true });
-      sec.addEventListener("touchmove", onTouchMove, { passive: false }); // must be false to use preventDefault
+      sec.addEventListener("touchmove", onTouchMove, { passive: false });
     }
 
     return () => {
@@ -193,103 +196,102 @@ export default function SuppliersSection() {
         sec.removeEventListener("touchstart", onTouchStart);
         sec.removeEventListener("touchmove", onTouchMove);
       }
+      if (wheelIdleTimer.current) clearTimeout(wheelIdleTimer.current);
     };
   }, []);
 
   return (
     <section
       ref={sectionRef}
-      className="relative h-[300vh]"
-      style={{
-        touchAction: "pan-y",           // allow vertical gesture; we manually prevent when snapping
-        overscrollBehavior: "contain",  // stop scroll chaining on mobile
-      }}
+      // Height equals (#slides * 100vh) so the sticky content can consume scroll
+      style={{ height: `${suppliers.length * 100}vh` }}
+      className="relative"
     >
-      <div className="sticky top-0 h-screen overflow-hidden">
-        {/* Backgrounds */}
-        {suppliers.map((supplier, i) => (
+      <div
+        className="sticky top-0 h-screen overflow-hidden"
+        style={{ overscrollBehavior: "auto", touchAction: "pan-y" }}
+      >
+        {/* Backgrounds cross-fade */}
+        {suppliers.map((s, i) => (
           <motion.img
-            key={supplier.name}
-            src={supplier.background}
-            alt={`${supplier.name} background`}
-            className="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000"
-            style={{ willChange: "opacity" }}
+            key={s.name}
+            src={s.background}
+            alt=""
+            className="absolute inset-0 h-full w-full object-cover"
+            initial={{ opacity: i === 0 ? 1 : 0 }}
             animate={{ opacity: index === i ? 1 : 0 }}
+            transition={{ duration: 0.6 }}
           />
         ))}
 
-        <div className="absolute inset-0 bg-black/60 z-0" />
+        {/* dim layer */}
+        <div className="absolute inset-0 bg-black/60" />
 
         {/* Content */}
-        <div
-          className={clsx(
-            "relative z-10 h-full p-6 flex flex-col md:flex-row justify-center md:justify-between items-start md:items-center page-width gap-6 md:gap-0"
-          )}
-          style={{ alignItems: "flex-start" }}
-        >
+        <div className="relative z-10 mx-auto flex h-full w-full  flex-col items-start justify-between gap-8 page-width md:flex-row md:items-center">
+          {/* Left info */}
           <motion.div
             key={index}
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-2xl mt-28 md:mt-0 suppliers-content"
-            style={{ paddingTop: "100px" }}
+            transition={{ duration: 0.45 }}
+            className="mt-24 max-w-2xl md:mt-0"
           >
-            <h2 className="heading mb-12" style={{color:"white"}}>SUPPLIERS</h2>
+            <h2 className="mb-8 text-3xl font-extrabold tracking-wide text-white md:text-4xl">
+              SUPPLIERS
+            </h2>
 
-            <div className="bg-white text-black rounded-full inline-block px-5 py-2 mb-4 font-medium shadow-lg">
+            <div className="mb-4 inline-block rounded-full bg-white/95 px-5 py-2 font-medium text-black shadow">
               {suppliers[index].name}
             </div>
 
             <img
               src={suppliers[index].logo}
               alt="Logo"
-              className="w-40 h-auto mb-6 md:hidden suppliers-logo"
+              className="mb-6 h-auto w-40 md:hidden"
             />
 
-            <hr className="border-white w-4/6 my-4 border-1" />
+            <hr className="my-4 w-4/6 border-white/90" />
 
-            <ul className="space-y-2 pt-4 text-white/90 leading-relaxed text-base md:text-lg">
-              {suppliers[index].content.map((line, idx) => (
-                <li key={idx}>• {line}</li>
+            <ul className="pt-4 text-base leading-relaxed text-white/90 md:text-lg">
+              {suppliers[index].content.map((line, i) => (
+                <li key={i} className="mb-2">
+                  • {line}
+                </li>
               ))}
             </ul>
           </motion.div>
 
-          {/* Logo List (desktop) */}
-          <div className="hidden my-auto md:flex flex-col gap-4 items-end p-6 bg-white/30 rounded-lg shadow-lg backdrop-blur-md">
-            {suppliers.map((supplier, i) => (
-              <div
-                key={supplier.name}
+          {/* Right logos (desktop) */}
+          <div className="my-auto hidden rounded-lg bg-white/30 p-4 shadow backdrop-blur-md md:flex md:flex-col md:items-end md:gap-4">
+            {suppliers.map((s, i) => (
+              <button
+                key={s.name}
                 onClick={() => setIndex(i)}
                 className={clsx(
-                  "p-2 bg-white rounded-md w-40 shadow-md cursor-pointer transition-all duration-300",
+                  "w-40 cursor-pointer rounded-md bg-white p-2 shadow-md transition-all duration-300",
                   i === index ? "scale-105 ring-2 ring-blue-500" : "opacity-70 hover:opacity-100"
                 )}
               >
-                <img
-                  src={supplier.logo}
-                  alt={supplier.name}
-                  className="w-full h-16 object-contain"
-                />
-              </div>
+                <img src={s.logo} alt={s.name} className="h-16 w-full object-contain" />
+              </button>
             ))}
           </div>
-        </div>
 
-        {/* Optional: mobile next/prev affordances */}
-        <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 md:hidden z-10">
-          {suppliers.map((_, i) => (
-            <button
-              key={i}
-              aria-label={`Go to slide ${i + 1}`}
-              onClick={() => setIndex(i)}
-              className={clsx(
-                "w-2.5 h-2.5 rounded-full",
-                i === index ? "bg-white" : "bg-white/50"
-              )}
-            />
-          ))}
+          {/* Mobile dots */}
+          <div className="absolute bottom-4 left-0 right-0 z-10 mx-auto flex justify-center gap-2 md:hidden">
+            {suppliers.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setIndex(i)}
+                aria-label={`Go to slide ${i + 1}`}
+                className={clsx(
+                  "h-2.5 w-2.5 rounded-full",
+                  i === index ? "bg-white" : "bg-white/50"
+                )}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>

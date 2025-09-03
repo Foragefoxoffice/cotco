@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { RxArrowTopRight } from "react-icons/rx";
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi";
+import TitleAnimation from "../common/AnimatedTitle";
 
 const NEWS = [
   { img: "/img/home/news1.jpg", title: "Now the pain is very important, and the teaching is consistent.", excerpt: "Reflections on process and value: behind our latest milestone and community gathering.", href: "#" },
@@ -46,10 +47,17 @@ export default function NewsSection() {
 
   return (
     <section className="bg-white overflow-x-hidden">
-           <div className="grid grid-cols-12 gap-10 items-start page-width mr-0 md:pr-0 md:py-20 pb-10 " style={{paddingRight:0,marginRight:0}}>
+           <div className="grid grid-cols-12 gap-10 items-start page-width mr-0 md:pr-0 md:py-20 py-10 " style={{paddingRight:0,marginRight:0}}>
         {/* Left column */}
         <div className="col-span-12 md:col-span-4 h-full grid place-content-center">
-          <h2 className="heading text-center md:text-left ">NEWS</h2>
+           <TitleAnimation
+            text={"NEWS"}
+            className="heading"
+            align="heading text-center md:text-left"
+            delay={0.1}
+        stagger={0.05}   // slower/faster per letter
+        once={true}
+      />
           <p className="mt-4 text-slate-600 text-center md:text-left leading-relaxed max-w-sm">
             Conveniently located and surrounded by natural beauty, it's the perfect spot for our celebration.
           </p>

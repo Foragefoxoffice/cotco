@@ -79,7 +79,7 @@ const GetinTouch = () => {
     <section className="bg-white">
       <div className="mx-auto page-width md:pt-20 pt-6">
         {/* Heading */}
-        <div className="text-center max-w-3xl mx-auto">
+        {/* <div className="text-center max-w-3xl mx-auto">
           <h2 className="heading">
             Get In Touch
           </h2>
@@ -87,10 +87,10 @@ const GetinTouch = () => {
             We’re here to assist you with any inquiries about our cotton,
             viscose, or<br></br> machinery products.
           </p>
-        </div>
+        </div> */}
 
         {/* Cards */}
-        <div className="md:mt-12 mt-6 grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        <div className="  grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {/* Our Office */}
           <div className="rounded-2xl bg-white [box-shadow:rgba(0,0,0,0.1)_0px_1px_3px_0px,rgba(0,0,0,0.06)_0px_1px_2px_0px] p-6 md:p-8">
             <div className="flex items-start gap-4">
@@ -117,48 +117,7 @@ const GetinTouch = () => {
           </div>
 
           {/* Contact methods */}
-          <div className="rounded-2xl bg-white [box-shadow:rgba(0,0,0,0.1)_0px_1px_3px_0px,rgba(0,0,0,0.06)_0px_1px_2px_0px] p-6 md:p-8">
-            <div className="space-y-6">
-              {/* Phone */}
-              <div className="flex items-start gap-4">
-                <IconBox>
-                  <PhoneIcon />
-                </IconBox>
-                <div>
-                  <h4 className="text-lg font-semibold text-slate-900">
-                    Phone
-                  </h4>
-                  <p className="mt-1 text-slate-600">+84 (28) 3589 9978</p>
-                </div>
-              </div>
-
-              {/* Email */}
-              <div className="flex items-start gap-4">
-                <IconBox>
-                  <MailIcon />
-                </IconBox>
-                <div>
-                  <h4 className="text-lg font-semibold text-slate-900">
-                    Email
-                  </h4>
-                  <p className="mt-1 text-slate-600">Trading@cotco-vn.com</p>
-                </div>
-              </div>
-
-              {/* Tax Code */}
-              <div className="flex items-start gap-4">
-                <IconBox>
-                  <ReceiptIcon />
-                </IconBox>
-                <div>
-                  <h4 className="text-lg font-semibold text-slate-900">
-                    Tax Code
-                  </h4>
-                  <p className="mt-1 text-slate-600">0314052753</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          
 
           {/* Business Hours */}
           <div className="rounded-2xl bg-white [box-shadow:rgba(0,0,0,0.1)_0px_1px_3px_0px,rgba(0,0,0,0.06)_0px_1px_2px_0px] p-6 md:p-8">

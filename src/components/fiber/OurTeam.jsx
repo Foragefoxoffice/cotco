@@ -2,82 +2,7 @@
 import { useState } from "react";
 import { FiPlus} from "react-icons/fi";
 const TEAM_SECTIONS = [
-  {
-    title: "Cotton",
-    members: [
-      {
-        name: "Maria",
-        role: "Cotton Trader",
-        phone: "+84 934 110 120",
-        email: "maria@cotco-vn.com",
-      },
-      {
-        name: "Lisa",
-        role: "Cotton Trader",
-        phone: "+84 913 796 683",
-        email: "lisa@cotco-vn.com",
-      },
-      {
-        name: "Memole",
-        role: "Cotton Trader",
-        phone: "+84 909 234 906",
-        email: "nganhth@cotco-vn.com",
-      },
-      {
-        name: "Martin",
-        role: "Cotton Trader",
-        phone: "+84 984 557 888",
-        email: "nganhth@cotco-vn.com",
-      },
-      {
-        name: "Giao",
-        role: "Logistics Executive",
-        phone: "+84 943 447 973",
-        email: "giao@cotco-vn.com",
-      },
-      {
-        name: "Christ",
-        role: "Logistics Executive",
-        phone: "+84 943 447 973",
-        email: "trihong@cotcousa.com",
-      },
-    ],
-  },
-  {
-    title: "Machine",
-    members: [
-      {
-        name: "Cris",
-        role: "Sales Manager",
-        phone: "+84 937 127 025",
-        email: "hoang@cotco-vn.com",
-      },
-      {
-        name: "Nam",
-        role: "Technical Manager",
-        phone: "+84 962 824 098",
-        email: "nam@cotco-vn.com",
-      },
-      {
-        name: "David",
-        role: "Technican",
-        phone: "+84 903 189 969",
-        email: "tien@cotco-vn.com",
-      },
-      {
-        name: "Eric",
-        role: "Logistics Executive",
-        phone: "+84 909 199 383",
-        email: "eric@cotco-vn.com",
-      },
-      {
-        name: "Luna",
-        role: "Sales Admin",
-        phone: "+84 932 387 592",
-        email: "luna@cotco-vn.com",
-      },
-    ],
-  },
+
   {
     title: "Fibre",
     members: [
@@ -95,30 +20,7 @@ const TEAM_SECTIONS = [
       },
     ],
   },
-  {
-    title: "Marketing",
-    members: [
-      {
-        name: "Tracy",
-        role: "Marketing Associate",
-        phone: "+1 408 422 9871",
-        email: "tuong@cotco-vn.com",
-      },
-      {
-        name: "Mei",
-        role: "Marketing Executive",
-        phone: "+84 936 206 974",
-        email: "tram@cotco-vn.com",
-      },
-    ],
-  },
-  {
-    title: "Director",
-    members: [
-      { name: "Huan", role: "CEO", email: "huan@cotco-vn.com" },
-      { name: "Hiep", role: "CFO", email: "hiep@cotco-vn.com" },
-    ],
-  },
+
 ];
 
 function PlusIcon({ open }) {
@@ -160,14 +62,14 @@ export default function MeetOurTeam() {
   const [openIndex, setOpenIndex] = useState(1);
 
   return (
-    <section className="pt-6 md:pt-20">
+    <section className="pb-10 md:pb-32">
       <div className="mx-auto max-w-5xl px-4">
         {/* Header */}
         <div className="text-center">
           <span className="mx-auto mb-3 inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-[11px] font-medium text-slate-600">
-            Our people
+            Contact
           </span>
-          <h2 className="heading uppercase">Meet our team</h2>
+          <h2 className="heading uppercase">OUR TEAM</h2>
           <p className="mx-auto mt-3 max-w-3xl text-[16px] leading-relaxed text-slate-500 md:text-[16px]">
             Our experienced professionals combine deep textile industry
             knowledge with international trade expertise, ensuring seamless

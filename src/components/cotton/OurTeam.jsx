@@ -43,82 +43,6 @@ const TEAM_SECTIONS = [
       },
     ],
   },
-  {
-    title: "Machine",
-    members: [
-      {
-        name: "Cris",
-        role: "Sales Manager",
-        phone: "+84 937 127 025",
-        email: "hoang@cotco-vn.com",
-      },
-      {
-        name: "Nam",
-        role: "Technical Manager",
-        phone: "+84 962 824 098",
-        email: "nam@cotco-vn.com",
-      },
-      {
-        name: "David",
-        role: "Technican",
-        phone: "+84 903 189 969",
-        email: "tien@cotco-vn.com",
-      },
-      {
-        name: "Eric",
-        role: "Logistics Executive",
-        phone: "+84 909 199 383",
-        email: "eric@cotco-vn.com",
-      },
-      {
-        name: "Luna",
-        role: "Sales Admin",
-        phone: "+84 932 387 592",
-        email: "luna@cotco-vn.com",
-      },
-    ],
-  },
-  {
-    title: "Fibre",
-    members: [
-      {
-        name: "Sohpie",
-        role: "Sales Manager",
-        phone: "+84 969 003 600",
-        email: "sophie@cotco-vn.com",
-      },
-      {
-        name: "Max",
-        role: "Logistics Executive",
-        phone: "+84 965 647 670",
-        email: "anpham@cotco-vn.com",
-      },
-    ],
-  },
-  {
-    title: "Marketing",
-    members: [
-      {
-        name: "Tracy",
-        role: "Marketing Associate",
-        phone: "+1 408 422 9871",
-        email: "tuong@cotco-vn.com",
-      },
-      {
-        name: "Mei",
-        role: "Marketing Executive",
-        phone: "+84 936 206 974",
-        email: "tram@cotco-vn.com",
-      },
-    ],
-  },
-  {
-    title: "Director",
-    members: [
-      { name: "Huan", role: "CEO", email: "huan@cotco-vn.com" },
-      { name: "Hiep", role: "CFO", email: "hiep@cotco-vn.com" },
-    ],
-  },
 ];
 
 function PlusIcon({ open }) {
@@ -160,18 +84,16 @@ export default function MeetOurTeam() {
   const [openIndex, setOpenIndex] = useState(1);
 
   return (
-    <section className="pt-6 md:pt-20">
+    <section className="pb-10 md:pb-32">
       <div className="mx-auto max-w-5xl px-4">
         {/* Header */}
         <div className="text-center">
           <span className="mx-auto mb-3 inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-[11px] font-medium text-slate-600">
-            Our people
+            Contact
           </span>
-          <h2 className="heading uppercase">Meet our team</h2>
+          <h2 className="heading uppercase">OUR TEAM</h2>
           <p className="mx-auto mt-3 max-w-3xl text-[16px] leading-relaxed text-slate-500 md:text-[16px]">
-            Our experienced professionals combine deep textile industry
-            knowledge with international trade expertise, ensuring seamless
-            transactions and technical support for our clients.
+           Our experienced professionals combine deep textile industry knowledge with international trade expertise, ensuring seamless transactions and technical support for our clients.
           </p>
         </div>
 
