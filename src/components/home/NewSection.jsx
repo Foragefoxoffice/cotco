@@ -102,7 +102,7 @@ export default function NewsSection() {
                           "rounded-2xl bg-white ring-1 ring-black/5 overflow-hidden p-4 transition-[transform,opacity,filter] duration-300",
                           isActive
                             ? "z-20 scale-100 shadow-2xl blur-0 pointer-events-auto"
-                            : "z-10 scale-[0.85] md:mx-[-30px] opacity-90 shadow-md blur-[3px] pointer-events-none select-none",
+                            : "z-10 scale-[0.85] md:mx-[-30px] shadow-md blur-[3px] pointer-events-none select-none",
                         ].join(" ")}
                         aria-hidden={!isActive}
                       >
@@ -132,7 +132,7 @@ export default function NewsSection() {
             </div>
 
             {/* Dots */}
-            <div className="mt-6 flex justify-end gap-2 pr-2">
+            <div className="mt-6 flex justify-center gap-2 pr-2">
               {NEWS.map((_, i) => (
                 <span
                   key={i}

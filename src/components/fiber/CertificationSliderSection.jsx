@@ -3,7 +3,7 @@ import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import TitleAnimation from "../common/AnimatedTitle";
-
+import { FiArrowDownRight } from "react-icons/fi";
 const certificateImages = [
   "/img/cotton/certificates/certification1.png",
   "/img/cotton/certificates/certification2.jpg",
@@ -57,7 +57,7 @@ export default function CertificationSliderSection() {
         <div className="text-center md:text-left">
          
           <TitleAnimation
-            text={" PROUD member of the International Cotton Association (ICA)"}
+            text={" PROUD member of the \n International  Cotton Association \n (ICA)"}
             className="heading mb-6 leading-snug text-black"
              align="center" mdAlign="left" lgAlign="right"
             delay={0.1}
@@ -65,9 +65,9 @@ export default function CertificationSliderSection() {
             once={true}
           />
           
-          <button className="mt-4 px-6 py-3 bg-[#0A1C2E] text-white font-semibold rounded-md inline-flex items-center gap-2 hover:bg-[#0b263f] transition">
-            Explore Certifications <FaArrowRight className="text-sm mt-[1px]" />
-          </button>
+            <a href="/products" className="w-72 mt-6 px-5 py-2 rounded-full flex gap-2 items-center border border-gray-400 hover:bg-black hover:text-white transition-all text-xl font-semibold" style={{fontSize: '20px'}}>
+                            Explore Certifications <FiArrowDownRight />
+                          </a>
         </div>
 
         {/* Right Side - Slider */}

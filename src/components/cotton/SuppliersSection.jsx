@@ -253,7 +253,7 @@ export default function SuppliersSection() {
             <img
               src={suppliers[index].logo}
               alt="Logo"
-              className="mb-6 h-auto w-40 md:hidden"
+              className="mb-6 bg-white p-4 rounded-md h-auto w-40 md:hidden"
             />
 
             <hr className="my-4 w-4/6 border-white/90" />

@@ -90,7 +90,7 @@ const GetinTouch = () => {
         </div> */}
 
         {/* Cards */}
-        <div className="  grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        <div className="  grid grid-cols-1 md:grid-cols-2 md:max-w-5xl m-auto gap-6 lg:gap-8">
           {/* Our Office */}
           <div className="rounded-2xl bg-white [box-shadow:rgba(0,0,0,0.1)_0px_1px_3px_0px,rgba(0,0,0,0.06)_0px_1px_2px_0px] p-6 md:p-8">
             <div className="flex items-start gap-4">

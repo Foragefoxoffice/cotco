@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import SlideButton from "../common/SlideButton";
+import { FiArrowDownRight } from "react-icons/fi";
 
 export default function HeroSection() {
   const [scrolled, setScrolled] = useState(false);
@@ -49,16 +50,10 @@ export default function HeroSection() {
         <p className="mt-4 text-lg">
           Empowering Vietnam’s Textile Industry Since 2016
         </p>
-        <div className="mt-6">
-          <SlideButton
-            bgColor="#fff"
-            textColor="#143A59"
-            hoverBgColor="#143A59"
-            hoverTextColor="#fff"
-          >
-           Explore Products
-          </SlideButton>
-        </div>
+
+        <a href="/products" className="w-60 mt-6 px-5 py-2 rounded-full flex gap-2 items-center border border-gray-400 hover:bg-black hover:text-white transition-all text-xl font-semibold" style={{fontSize: '20px'}}>
+          Explore Products <FiArrowDownRight />
+        </a>
       </div>
     </motion.div>
   );

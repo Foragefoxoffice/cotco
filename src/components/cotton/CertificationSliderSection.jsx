@@ -3,6 +3,7 @@ import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import TitleAnimation from "../common/AnimatedTitle";
+import { FiArrowDownRight } from "react-icons/fi";
 
 const certificateImages = [
   "/img/cotton/certificates/certification1.png",
@@ -57,16 +58,16 @@ export default function CertificationSliderSection() {
         <div>
         
           <TitleAnimation
-            text={" PROUD member of the  International Cotton Association (ICA)"}
+            text={" PROUD member of the \n International Cotton Association \n (ICA)"}
             className="heading mb-6 leading-snug text-black"
              align="center" mdAlign="left" lgAlign="right"
             delay={0.1}
             stagger={0.05}
             once={true}
           />
-          <button className="mt-4 px-6 py-3 bg-[#0A1C2E] text-white font-semibold rounded-md inline-flex items-center gap-2 hover:bg-[#0b263f] transition">
-            Explore Certifications <FaArrowRight className="text-sm mt-[1px]" />
-          </button>
+          <a href="/products" className="w-72 mt-6 px-5 py-2 rounded-full flex gap-2 items-center border border-gray-400 hover:bg-black hover:text-white transition-all text-xl font-semibold" style={{fontSize: '20px'}}>
+                   Explore Certifications <FiArrowDownRight />
+                 </a>
         </div>
 
         {/* Right Side - Slider */}
@@ -87,7 +88,7 @@ export default function CertificationSliderSection() {
                   key={i}
                   src={src}
                   alt={`Certificate ${i + 1}`}
-                  className={`absolute certificate-slider-img top-0 left-0 w-[600px] h-[450px] rounded-2xl transition-all duration-700 ease-in-out
+                  className={`absolute certificate-slider-img top-0 left-0 w-[600px] h-[200px] md:h-[450px] rounded-2xl transition-all duration-700 ease-in-out
                     ${isActive ? "z-30 scale-100 rotate-0 opacity-100" : "z-10 opacity-40 scale-[0.95]"}
                   `}
                   style={{

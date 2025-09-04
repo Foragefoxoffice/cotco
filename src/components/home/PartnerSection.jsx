@@ -9,9 +9,7 @@ const partners = [
   { name: "LDC", image: "/img/partners/logo3.png" },
   { name: "LMW", image: "/img/partners/logo4.png" },
   { name: "Devcot", image: "/img/partners/logo5.png" },
-  // Optional: Duplicate to make the loop smoother
-  { name: "Aditya Birla Group", image: "/img/partners/logo1.png" },
-  { name: "Viterra", image: "/img/partners/logo2.png" },
+ 
 ];
 
 export default function PartnerSection() {

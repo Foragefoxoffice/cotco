@@ -59,8 +59,9 @@ const TEAM_SECTIONS = [
   {
     title: "general contact",
     members: [
-      { name: "Huan", role: "CEO", email: "huan@cotco-vn.com" },
-      { name: "Hiep", role: "CFO", email: "hiep@cotco-vn.com" },
+      {  phone: "+84 (28) 3589 9978", email: "Trading@cotco-vn.com",
+taxCode: '0314052753' },
+     
     ],
   },
 ];
@@ -78,23 +79,24 @@ function PlusIcon({ open }) {
   );
 }
 
-function MemberCard({ name, role, phone, email }) {
+function MemberCard({ name, role, phone, email, taxCode }) {
   return (
     <li className="relative rounded-xl border border-slate-200 bg-white p-4 pl-6 shadow-sm">
       {/* vertical accent */}
       <span className="pointer-events-none absolute left-2 top-3 bottom-3 w-1 rounded-full bg-gradient-to-b from-indigo-400 to-sky-400" />
-      <div className="text-[11px] font-black uppercase tracking-wide text-slate-800">
+      <div className="text-[16px] font-black uppercase tracking-wide text-slate-800">
         {name}
       </div>
-      <div className="mt-1 text-[11px] font-semibold uppercase tracking-wide text-slate-500">
+      <div className="mt-1 text-[16px] font-semibold uppercase tracking-wide text-slate-500">
         {role}
       </div>
-      <div className="mt-2 space-y-0.5 text-[12px] leading-relaxed text-slate-600">
+      <div className="mt-2 space-y-0.5 text-[16px] leading-relaxed text-slate-600">
         <div>{phone}</div>
         <a href={`mailto:${email}`} className="text-sky-600 hover:underline">
           {email}
         </a>
       </div>
+      <div className="mt-1 text-[16px] font-semibold uppercase tracking-wide text-slate-500">{taxCode}</div>
     </li>
   );
 }

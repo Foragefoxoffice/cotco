@@ -34,9 +34,9 @@ const WhoWeAreSection = () => {
             innovation.
           </p>
 
-          <button className="px-5 py-2 rounded-full flex gap-2 items-center border border-gray-400 hover:bg-black hover:text-white transition-all text-sm font-semibold">
+          <a href="/aboutus" className="w-36 px-5 py-2 rounded-full flex gap-2 items-center border border-gray-400 hover:bg-black hover:text-white transition-all text-sm font-semibold">
             SEE MORE <FiArrowDownRight />
-          </button>
+          </a>
         </div>
       </div>
     </section>

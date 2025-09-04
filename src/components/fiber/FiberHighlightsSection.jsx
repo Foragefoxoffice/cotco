@@ -172,7 +172,7 @@ export default function FiberInfoBlocks() {
           viscose fiber is the ideal choice. With its advantages in quality, cost-effectiveness, and sustainability,
           viscose is increasingly favored by manufacturers and fashion brands worldwide.
         </p>
-        <a className="mx-auto w-60 rounded-xl bg-[#143A59] p-3 text-center text-white" href="/contact">
+        <a  className="mx-auto w-60 rounded-xl bg-[#143A59] p-3 text-center text-white" href="/contact">
           Contact Our Team
         </a>
       </div>

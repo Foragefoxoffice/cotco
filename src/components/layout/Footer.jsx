@@ -5,6 +5,8 @@ import {
   FaPinterestP,
   FaInstagram,
   FaLinkedinIn,
+  FaPhoneAlt,
+  FaEnvelope
 } from "react-icons/fa";
 
 const Footer = () => {
@@ -18,19 +20,19 @@ const Footer = () => {
               <img src="/img/home/footerLogo.png" alt="Cotco Logo" className="h-26" />
             </div>
             <div className="flex gap-4">
-              <a href="#" className="p-2 rounded border border-gray-500 hover:bg-white group">
+              <a href="https://www.facebook.com/COTCO-Cotton-Yarn-Textile-Machine-111059494909474" className="p-2 rounded border border-gray-500 hover:bg-white group">
                 <FaFacebookF className="text-white group-hover:text-[#0A1C2E]" />
               </a>
-              <a href="#" className="p-2 rounded border border-gray-500 hover:bg-white group">
-                <FaTwitter className="text-white group-hover:text-[#0A1C2E]" />
+              <a href="tel:+84(28)3589 9978" className="p-2 rounded border border-gray-500 hover:bg-white group">
+                <FaPhoneAlt className="text-white group-hover:text-[#0A1C2E]" />
               </a>
-              <a href="#" className="p-2 rounded border border-gray-500 hover:bg-white group">
-                <FaPinterestP className="text-white group-hover:text-[#0A1C2E]" />
+              <a href="trading@cotco-vn.com" className="p-2 rounded border border-gray-500 hover:bg-white group">
+                <FaEnvelope className="text-white group-hover:text-[#0A1C2E]" />
               </a>
-              <a href="#" className="p-2 rounded border border-gray-500 hover:bg-white group">
+              <a href="https://www.instagram.com/cotco_offical/" className="p-2 rounded border border-gray-500 hover:bg-white group">
                 <FaInstagram className="text-white group-hover:text-[#0A1C2E]" />
               </a>
-              <a href="#" className="p-2 rounded border border-gray-500 hover:bg-white group">
+              <a href="https://www.linkedin.com/company/65574506/admin/" className="p-2 rounded border border-gray-500 hover:bg-white group">
                 <FaLinkedinIn className="text-white group-hover:text-[#0A1C2E]" />
               </a>
             </div>

@@ -4,7 +4,7 @@ import React, { useState, useRef } from "react";
 export default function ContactSection() {
   return (
     <section className="bg-white">
-      <div className="mx-auto page-width md:pt-20">
+      <div className="mx-auto page-width pt-10 md:pt-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10 items-stretch">
           {/* LEFT: Image Card */}
           <div className="relative rounded-2xl overflow-hidden ring-1 ring-black/5 shadow-sm min-h-[520px] sm:aspect-[4/5] lg:aspect-auto">
