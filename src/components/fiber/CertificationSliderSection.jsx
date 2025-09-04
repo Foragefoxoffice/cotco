@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import TitleAnimation from "../common/AnimatedTitle";
 
 const certificateImages = [
   "/img/cotton/certificates/certification1.png",
@@ -54,10 +55,16 @@ export default function CertificationSliderSection() {
       <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-10">
         {/* Left Side */}
         <div className="text-center md:text-left">
-          <h2 className="heading mb-6 leading-snug text-black">
-            PROUD member of the <br />
-            International Cotton Association (ICA)
-          </h2>
+         
+          <TitleAnimation
+            text={" PROUD member of the International Cotton Association (ICA)"}
+            className="heading mb-6 leading-snug text-black"
+             align="center" mdAlign="left" lgAlign="right"
+            delay={0.1}
+            stagger={0.05}
+            once={true}
+          />
+          
           <button className="mt-4 px-6 py-3 bg-[#0A1C2E] text-white font-semibold rounded-md inline-flex items-center gap-2 hover:bg-[#0b263f] transition">
             Explore Certifications <FaArrowRight className="text-sm mt-[1px]" />
           </button>

@@ -1,4 +1,5 @@
 import React from "react";
+import TitleAnimation from "../common/AnimatedTitle";
 
 export default function AboutUsSection() {
   return (
@@ -17,9 +18,14 @@ export default function AboutUsSection() {
 
         {/* RIGHT: Text */}
         <div className="col-span-12 md:col-span-7 grid h-full place-content-center">
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-wide text-slate-900 uppercase">
-            About Us
-          </h2>
+            <TitleAnimation
+            text={"About Us"}
+            className="heading uppercase "
+             align="center" mdAlign="left" lgAlign="right"
+            delay={0.1}
+            stagger={0.05}
+            once={true}
+          />
 
           <div className="mt-4 space-y-4 text-slate-700 leading-relaxed max-w-2xl">
             <p className="font-medium">

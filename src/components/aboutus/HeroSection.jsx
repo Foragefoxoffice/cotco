@@ -49,7 +49,7 @@ const HeroSection = () => {
         >
           
           <h3 className="text-4xl text-[#143A59] md:text-6xl font-bold tracking-wider uppercase">
-            OUR STORY,VISION & VALUES
+            OUR TEAM
           </h3>
         </motion.div>
       </motion.div>

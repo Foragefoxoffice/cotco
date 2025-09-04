@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import clsx from "clsx";
+import TitleAnimation from "../common/AnimatedTitle";
 
 /* ---------- DATA ---------- */
 const suppliers = [
@@ -237,10 +238,14 @@ export default function SuppliersSection() {
             transition={{ duration: 0.45 }}
             className="mt-24 max-w-2xl md:mt-0"
           >
-            <h2 className="mb-8 text-3xl font-extrabold tracking-wide text-white md:text-4xl">
-              SUPPLIERS
-            </h2>
-
+            <TitleAnimation
+              text={"SUPPLIERS"}
+              className="mb-8 text-3xl fontbold tracking-wide text-white md:text-4xl"
+              align="left"
+              delay={0.1}
+            stagger={0.05}
+            once={true}
+          />
             <div className="mb-4 inline-block rounded-full bg-white/95 px-5 py-2 font-medium text-black shadow">
               {suppliers[index].name}
             </div>

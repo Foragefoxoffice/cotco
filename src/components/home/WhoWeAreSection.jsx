@@ -21,18 +21,21 @@ const WhoWeAreSection = () => {
             className="heading"
             align="left"
             delay={0.1}
-        stagger={0.05}   // slower/faster per letter
-        once={true}
-      />
+            stagger={0.05}
+            once={true}
+          />
 
           <p className="text-gray-600 text-base md:text-lg mb-6 leading-relaxed">
-            From Raw Materials to Technology<br />
-            Our Journey to Elevate the Value of Textiles<br />
-            Partnering with you to create quality, sustainability, and innovation.
+            From Raw Materials to Technology
+            <br />
+            Our Journey to Elevate the Value of Textiles
+            <br />
+            Partnering with you to create quality, sustainability, and
+            innovation.
           </p>
 
           <button className="px-5 py-2 rounded-full flex gap-2 items-center border border-gray-400 hover:bg-black hover:text-white transition-all text-sm font-semibold">
-            SEE MORE <FiArrowDownRight/>
+            SEE MORE <FiArrowDownRight />
           </button>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useInView } from "framer-motion";
 import SlideIn from "../common/SlideIn";
+import TitleAnimation from "../common/AnimatedTitle";
 
 /* ---------- small count-up utility ---------- */
 const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
@@ -54,12 +55,19 @@ export default function VissionMission() {
         <div className="relative rounded-[22px] md:rounded-[28px] bg-[#0E3E62] text-white shadow-xl">
           <div className="grid grid-cols-12 gap-8 md:gap-12 p-6 sm:p-8 md:p-12">
             {/* LEFT: title + blurbs */}
-            <SlideIn direction="left" className="col-span-12 md:col-span-7 lg:col-span-8 pr-20">
+            <SlideIn direction="left" className="col-span-12 md:col-span-7 lg:col-span-8 md:pr-20">
               <div>
-                <h2 className="uppercase tracking-wide heading" style={{color:'white'}}>
-                  VISSION &amp; MISSION
-                </h2>
 
+                        <TitleAnimation
+                            text={"VISSION & MISSION "}
+                            className="font-extrabold text-white md:text-4xl text-3xl "
+                            align="left"
+                            delay={0.1}
+                        stagger={0.05}   // slower/faster per letter
+                        once={true}
+                        
+                      />
+                      
                 <div className="mt-6 space-y-6">
                   <div>
                     <h3 className="uppercase text-sm font-bold tracking-wider">Developed From Trust</h3>

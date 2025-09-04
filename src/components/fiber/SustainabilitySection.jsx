@@ -1,5 +1,6 @@
 import React from "react";
 import { FaRecycle, FaDroplet, FaEarthAmericas } from "react-icons/fa6";
+import TitleAnimation from "../common/AnimatedTitle";
 
 const SustainabilitySection = () => {
   return (
@@ -8,9 +9,14 @@ const SustainabilitySection = () => {
         <span className="text-sm font-semibold text-black px-4 py-1 bg-blue-100 rounded-full mb-4 inline-block">
           Sustainability
         </span>
-        <h2 className="heading mb-4">
-          ECO-FRIENDLY FROM PRODUCTION TO DISPOSAL
-        </h2>
+        <TitleAnimation
+          text={"ECO-FRIENDLY FROM PRODUCTION TO DISPOSAL"}
+          className="heading mb-4"
+          align="center"
+          delay={0.1}
+          stagger={0.05}
+          once={true}
+        />
         <p className="text-gray-600 text-lg mb-10">
           Our viscose fibers are designed with the environment in mind at every stage of their lifecycle.
         </p>

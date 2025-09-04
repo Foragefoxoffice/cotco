@@ -182,7 +182,7 @@ export default function CottonHero() {
             />
             <motion.div
               animate={shadowControls}
-              className="w-full h-6 bg-black rounded-full mx-auto mt-[-12px] blur-md"
+              className="w-[60%] h-6 bg-black rounded-full mx-auto mt-[-12px] blur-md"
             />
           </motion.div>
 

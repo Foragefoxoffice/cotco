@@ -84,6 +84,9 @@ body.vi-mode .hero {
 .heading {
   @apply md:text-4xl text-3xl text-[#121E2B] font-bold;
 }
+.fontbold {
+  font-weight: 700;
+}
 /* increase side padding at breakpoints */
 @media (min-width: 640px) {   /* sm */
   .page-width { padding-left: 20px; padding-right: 20px; }

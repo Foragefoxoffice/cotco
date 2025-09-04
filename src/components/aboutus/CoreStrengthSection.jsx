@@ -1,5 +1,6 @@
 import React from "react";
 import SlideIn from "../common/SlideIn";
+import TitleAnimation from "../common/AnimatedTitle";
 
 const coreStrengths = [
   {
@@ -23,8 +24,16 @@ export default function CoreStrengthSection() {
   return (
     <section className="page-width md:py-20 py-6  bg-white core-strength">
       <div className="container mx-auto px-4">
-        <h2 className="heading text-center mb-10">CORE STRENGTHS</h2>
-
+     
+        <TitleAnimation
+            text={"CORE STRENGTHS"}
+            className="heading uppercase "
+            align="center"
+            delay={0.1}
+            stagger={0.05}
+            once={true}
+          />
+          
         <div className="flex flex-col md:flex-row gap-6">
           {/* Large Left Card with Slide from Left */}
           <SlideIn direction="left" className="w-full md:w-1/2">

@@ -1,6 +1,7 @@
 // src/components/MeetOurTeam.jsx
 import { useState } from "react";
 import { FiPlus} from "react-icons/fi";
+import TitleAnimation from "../common/AnimatedTitle";
 const TEAM_SECTIONS = [
   {
     title: "Cotton",
@@ -167,7 +168,15 @@ export default function MeetOurTeam() {
           <span className="mx-auto mb-3 inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-[11px] font-medium text-slate-600">
             Our people
           </span>
-          <h2 className="heading uppercase">Meet our team</h2>
+         
+            <TitleAnimation
+            text={"Meet our team"}
+            className="heading uppercase" 
+            align="center"
+            delay={0.1}
+            stagger={0.05}
+            once={true}
+          />
           <p className="mx-auto mt-3 max-w-3xl text-[16px] leading-relaxed text-slate-500 md:text-[16px]">
             Our experienced professionals combine deep textile industry
             knowledge with international trade expertise, ensuring seamless

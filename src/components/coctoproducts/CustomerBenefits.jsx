@@ -1,5 +1,5 @@
 import React from "react";
-
+import TitleAnimation from "../common/AnimatedTitle";
 const bullets = [
   "Lower production costs & improved quality standards.",
   "Genuine spare parts at competitive prices to optimize equipment reliability.",
@@ -16,7 +16,7 @@ export default function CustomerBenefits({
     <section className="bg-white py-10 md:py-16">
       <div className="page-width px-4 md:px-6">
         {/* Intro copy */}
-        <p className="mb-32 text-[15px] leading-7 text-slate-600 md:text-base">
+        <p className="md:mb-32 mb-10 text-[15px] leading-7 text-slate-600 md:text-base">
           With an agreement signed in 2022, COTCO became the official agent of Lakshmi
           Machine Works (LMW), India’s largest textile machinery manufacturer, for Vietnam’s
           spinning mills, including export-oriented factories from Korea, Taiwan, China, etc.
@@ -30,7 +30,7 @@ export default function CustomerBenefits({
           {/* angled blue card */}
           <div
             className="
-              relative z-10 w-full max-w-[880px] rounded-2xl
+              relative z-10 w-full md:max-w-[880px] rounded-2xl
               bg-[#163A63] p-6 pr-24 text-white shadow-xl md:p-8 md:pr-44
             "
             style={{
@@ -38,9 +38,16 @@ export default function CustomerBenefits({
                 "polygon(0 0, 88% 0, 100% 50%, 88% 100%, 0 100%)",
             }}
           >
-            <h3 className="mb-4 text-xl font-extrabold tracking-wide md:text-3xl">
-              CUSTOMER BENEFITS
-            </h3>
+           
+            <TitleAnimation
+              text={"CUSTOMER BENEFITS"}
+              className="mb-4 text-xl font-extrabold tracking-wide md:text-3xl fontbold"
+              align="left"
+              delay={0.1}
+              stagger={0.05}
+              once={true}
+            />
+          
 
             <ul className="space-y-2 text-sm leading-6 md:text-[15px]">
               {bullets.map((b, i) => (
@@ -60,10 +67,10 @@ export default function CustomerBenefits({
           </div>
 
           {/* small base shadow block (matches screenshot) */}
-          <div className="absolute -bottom-3 left-6 h-4 w-24 rounded bg-slate-300/70 blur-[1px]" />
+          <div className=" absolute -bottom-3 left-6 h-4 w-24 rounded bg-slate-300/70 blur-[1px]" />
 
           {/* machine image on the right, overlapping the card */}
-          <div className="pointer-events-none absolute right-0 top-1/2 z-20 -translate-y-1/2">
+          <div className="pointer-events-none md:absolute right-0 md:top-1/2 z-20 md:-translate-y-1/2">
             <img
               src={imageSrc}
               alt="LMW Machine"

@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import TitleAnimation from "../common/AnimatedTitle";
 
 export default function FounderSection() {
   const ref = useRef(null);
@@ -28,9 +29,16 @@ export default function FounderSection() {
           animate={inView ? "animate" : "initial"}
           variants={fadeLeft}
         >
-          <h2 className="heading tracking-wide text-slate-900 uppercase text-center md:text-left">
-            Founder
-          </h2>
+         
+           <TitleAnimation
+            text={"Founder"}
+            className="heading uppercase "
+             align="center" mdAlign="left" lgAlign="right"
+            delay={0.1}
+            stagger={0.05}
+            once={true}
+          />
+          
           <h3 className="mt-1 text-xl md:text-2xl font-semibold text-slate-800 text-center md:text-left">
             Huan Dinh
           </h3>

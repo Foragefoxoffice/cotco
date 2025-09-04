@@ -97,9 +97,9 @@ export default function FiberInfoBlocks() {
 
   const handleInteraction = (index) => {
     if (isMobile) {
-      setActiveIndex(activeIndex === index ? null : index); // toggle on click
+      setActiveIndex(activeIndex === index ? null : index); // toggle on tap
     } else {
-      setActiveIndex(index); // always show on hover for desktop
+      setActiveIndex(index); // show on hover
     }
   };
 
@@ -114,66 +114,68 @@ export default function FiberInfoBlocks() {
             className={`group relative bg-white ${isActive ? "active" : ""}`}
             onClick={() => handleInteraction(idx)}
             onMouseEnter={() => !isMobile && handleInteraction(idx)}
+            onMouseLeave={() => !isMobile && setActiveIndex(null)}
           >
-            {/* Floating Image */}
+            {/* BACKGROUND revealed when doors open */}
+            <div className="absolute inset-0 z-0 bg-[#0A4A78]" />
+
+            {/* VERTICAL DOUBLE DOORS */}
+            <div className="pointer-events-none absolute inset-0 z-10">
+              {/* top door */}
+              <div
+                className={`absolute left-0 top-0 h-1/2 w-full bg-white transition-transform duration-700 ease-out will-change-transform
+                ${isActive ? "-translate-y-full" : "translate-y-0"}`}
+              />
+              {/* bottom door */}
+              <div
+                className={`absolute left-0 bottom-0 h-1/2 w-full bg-white transition-transform duration-700 ease-out will-change-transform
+                ${isActive ? "translate-y-full" : "translate-y-0"}`}
+              />
+            </div>
+
+            {/* FLOATING IMAGE (desktop) */}
             <div
-              className={`absolute bottom-[-60px] right-0 transform -translate-x-1/2 z-30 w-48 rounded-lg shadow-lg transition-opacity duration-500 ${
+              className={`absolute bottom-[-60px] right-0 z-30 w-48 -translate-x-1/2 transform transition-opacity duration-500 ${
                 isActive ? "opacity-100" : "opacity-0"
               }`}
             >
-              <img src={section.image} alt="fiber" className="w-full h-auto hidden md:block" />
+              <img src={section.image} alt="fiber" className="hidden h-auto w-full md:block" />
             </div>
 
-            <div className="overflow-hidden relative">
-  {/* Top Half (opens downward) */}
-  <div
-    className={`absolute top-0 left-0 w-full h-1/2 bg-[#0A4A78] z-0 transition-transform duration-700 ease-in-out origin-bottom
-      ${isActive ? "translate-y-0" : "-translate-y-full"}`}
-  />
+            {/* CONTENT */}
+            <div
+              className={`relative z-20 page-width grid gap-10 py-20 transition-colors duration-500 md:grid-cols-4 md:gap-20 ${
+                isActive ? "text-white" : "text-black"
+              }`}
+            >
+              <h3
+                className="outlined-text flex min-w-[180px] items-center text-4xl font-extrabold uppercase tracking-wide md:col-span-2 md:text-6xl"
+                dangerouslySetInnerHTML={{ __html: section.title }}
+              />
 
-  {/* Bottom Half (opens upward) */}
-  <div
-    className={`absolute bottom-0 left-0 w-full h-1/2 bg-[#0A4A78] z-0 transition-transform duration-700 ease-in-out origin-top
-      ${isActive ? "translate-y-0" : "translate-y-full"}`}
-  />
-
-  {/* Main Content */}
-  <div
-    className={`relative z-10 page-width py-20 transition-all duration-500 grid md:grid-cols-4 gap-10 md:gap-20 ${
-      isActive ? "text-white" : "text-black"
-    }`}
-  >
-    <h3
-      className="text-4xl md:col-span-2 md:text-6xl font-extrabold uppercase tracking-wide min-w-[180px] outlined-text flex items-center"
-      dangerouslySetInnerHTML={{ __html: section.title }}
-    />
-
-    <ul className="space-y-3 md:col-span-2 text-sm md:text-base leading-relaxed">
-      {section.lines.map((line, i) => (
-        <li
-          key={i}
-          className="relative pl-6 before:absolute before:left-0 before:top-1 before:content-['--']"
-        >
-          {line}
-        </li>
-      ))}
-    </ul>
-  </div>
-</div>
-
+              <ul className="md:col-span-2 space-y-3 text-sm leading-relaxed md:text-base">
+                {section.lines.map((line, i) => (
+                  <li key={i} className="relative pl-6 before:absolute before:left-0 before:top-1 before:content-['--']">
+                    {line}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         );
       })}
-      <div
-                className="relative z-10 page-width pt-10 md:pt-26 transition-all duration-500 grid gap-8  "
-              >
-              <p className="text-xl text-center">If you are looking for a raw material solution that combines performance with
-environmental responsibility, viscose fiber is the ideal choice. With its advantages in
-quality, cost-effectiveness, and sustainability, viscose is increasingly favored by
-manufacturers and fashion brands worldwide.</p>
-             <a className="bg-[#143A59] w-60 text-center rounded-xl m-auto text-white p-3" href="/contact">Contact Our Team</a>
 
-              </div>
+      {/* Footer CTA */}
+      <div className="page-width relative z-20 grid gap-8 pt-10 transition-all md:pt-26">
+        <p className="text-center text-xl">
+          If you are looking for a raw material solution that combines performance with environmental responsibility,
+          viscose fiber is the ideal choice. With its advantages in quality, cost-effectiveness, and sustainability,
+          viscose is increasingly favored by manufacturers and fashion brands worldwide.
+        </p>
+        <a className="mx-auto w-60 rounded-xl bg-[#143A59] p-3 text-center text-white" href="/contact">
+          Contact Our Team
+        </a>
+      </div>
     </section>
   );
 }

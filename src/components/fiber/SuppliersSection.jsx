@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import TitleAnimation from "../common/AnimatedTitle";
 const logos = [
   "/img/fiber/aditya.png",
   "/img/fiber/products/birla.png",
@@ -20,7 +20,14 @@ export default function SupplierSection() {
       <div className="mx-auto grid grid-cols-1 md:grid-cols-3 items-center gap-10 page-width">
         {/* Left Text Content */}
         <div className="md:col-span-2">
-          <h2 className="heading mb-6" style={{ color: "#fff" }}>SUPPLIER</h2>
+          <TitleAnimation
+            text={"SUPPLIER"}
+            className="mb-8 fontbold text-3xl font-extrabold tracking-wide text-white md:text-4xl"
+            align="left"
+            delay={0.1}
+            stagger={0.05}
+            once={true}
+          />
           <ul className="space-y-3 text-sm md:text-base text-white/90 leading-relaxed">
             <li>
               • One of the world’s largest fiber producers, part of the Aditya Birla Group, India

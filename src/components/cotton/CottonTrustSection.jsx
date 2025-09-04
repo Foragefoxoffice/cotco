@@ -1,4 +1,5 @@
 import React from "react";
+import TitleAnimation from "../common/AnimatedTitle";
 
 export default function CottonTrustSection() {
   return (
@@ -6,9 +7,15 @@ export default function CottonTrustSection() {
       <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-10">
         {/* Left Text + Logos */}
         <div>
-          <h2 className="heading mb-4">
-            GROW IN TRUST, QUALITY<br className="hidden md:block" /> AND SERVICE
-          </h2>
+          
+<TitleAnimation
+            text={" GROW IN TRUST, QUALITY \n AND SERVICE"}
+            className="heading "
+             align="center" mdAlign="left" lgAlign="right"
+            delay={0.1}
+            stagger={0.05}
+            once={true}
+          />
           <p className="text-gray-600 mb-6 max-w-lg">
             Besides marketing cotton from major production regions worldwide, COTCO enhances product value
             through stable quality control and professional logistics, ensuring efficient supply.

@@ -7,6 +7,7 @@ import {
   FaSeedling,
   FaDollarSign,
 } from "react-icons/fa6";
+import TitleAnimation from "../common/AnimatedTitle";
 
 const features = [
   {
@@ -59,9 +60,14 @@ export default function WhyChooseViscose() {
   return (
     <section className="bg-white py-6 md:py-20 page-width">
       <div className="mx-auto text-center">
-        <h2 className="heading -900 mb-2">
-          WHY CHOOSE VISCOSE FIBER?
-        </h2>
+        <TitleAnimation
+          text={"WHY CHOOSE VISCOSE FIBER?"}
+          className="heading -900 mb-2"
+          align="center"
+          delay={0.1}
+          stagger={0.05}
+          once={true}
+        />
         <p className="text-gray-600 mb-10">
           Superior performance meets sustainability in our premium viscose fibers.
         </p>

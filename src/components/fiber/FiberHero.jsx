@@ -185,7 +185,7 @@ export default function FiberHero() {
   />
   <motion.div
     animate={shadowControls}
-    className="w-full h-6 bg-black rounded-md mx-auto mt-[-20px] blur-sm"
+    className="w-[80%] h-6 bg-black rounded-md mt-[-10px] blur-xl"
   />
 </motion.div>
 

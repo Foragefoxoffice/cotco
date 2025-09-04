@@ -6,17 +6,23 @@ import { motion, useInView } from "framer-motion";
  * LetterRevealTitle
  * Props:
  *  - text: string | string[]  (use "\n" for new lines)
- *  - as: "h1" | "h2" | "h3" | "div" (default: h1)
- *  - align: "left" | "center" | "right"
- *  - delay: number  (initial delay in seconds)
- *  - stagger: number (per-letter delay in seconds)
- *  - once: boolean  (animate only first time; default true)
- *  - className: string (Tailwind classes for size/style)
+ *  - as: "h1" | "h2" | "h3" | "div" (default: h2)
+ *  - align: "left" | "center" | "right" | "text-left md:text-center ..."  (mobile/base)
+ *  - mdAlign?: "left" | "center" | "right"
+ *  - lgAlign?: "left" | "center" | "right"
+ *  - xlAlign?: "left" | "center" | "right"
+ *  - delay: number
+ *  - stagger: number
+ *  - once: boolean
+ *  - className: string
  */
 export default function TitleAnimation({
   text,
   as: Tag = "h2",
   align = "left",
+  mdAlign,
+  lgAlign,
+  xlAlign,
   delay = 0,
   stagger = 0.06,
   once = true,
@@ -31,8 +37,22 @@ export default function TitleAnimation({
     [text]
   );
 
-  const alignClass =
-    align === "center" ? "text-center" : align === "right" ? "text-right" : "text-left";
+  const mapAlign = (val, pref = "") => {
+    if (!val) return "";
+    // pass-through if user already provided tailwind text-* classes
+    if (typeof val === "string" && /text-(left|center|right)/.test(val)) return val;
+    const map = { left: "text-left", center: "text-center", right: "text-right" };
+    return pref + (map[val] || "text-left");
+  };
+
+  const alignClasses = [
+    mapAlign(align),                // mobile/base
+    mdAlign && mapAlign(mdAlign, "md:"),
+    lgAlign && mapAlign(lgAlign, "lg:"),
+    xlAlign && mapAlign(xlAlign, "xl:"),
+  ]
+    .filter(Boolean)
+    .join(" ");
 
   const baseTransition = { duration: 0.6, ease: [0.22, 1, 0.36, 1] };
 
@@ -45,32 +65,26 @@ export default function TitleAnimation({
       className={[
         "font-semibold leading-[1.05] tracking-tight",
         "motion-reduce:transform-none motion-reduce:transition-none",
-        alignClass,
+        alignClasses,
         className,
       ].join(" ")}
     >
       {lines.map((line, li) => {
-        // keep spaces as separate tokens so alignment never shifts
         const tokens = line.split(/(\s+)/);
         return (
           <span key={li} className="block">
             {tokens.map((tok, i) => {
               if (/^\s+$/.test(tok)) {
-                // render spaces (not animated)
                 return (
                   <span key={`${li}-sp-${i}`} className="inline-block">
                     &nbsp;
                   </span>
                 );
               }
-              // animate each grapheme in the word
               return Array.from(tok).map((ch, ci) => {
                 const idx = order++;
                 return (
-                  <span
-                    key={`${li}-${i}-${ci}`}
-                    className="inline-block overflow-hidden align-baseline"
-                  >
+                  <span key={`${li}-${i}-${ci}`} className="inline-block overflow-hidden align-baseline">
                     <motion.span
                       initial={{ y: "110%", opacity: 0, filter: "blur(6px)" }}
                       animate={

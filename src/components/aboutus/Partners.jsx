@@ -2,6 +2,7 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import TitleAnimation from "../common/AnimatedTitle";
 
 const partners = [
   { name: "Aditya Birla Group", image: "/img/partners/logo1.png" },
@@ -38,10 +39,16 @@ export default function Partner() {
 
   return (
     <section className="md:py-20 py-6 page-width bg-white rounded-md partner-section">
-      <h2 className="text-center heading mb-8">
-        PROUD PARTNERS WITH GLOBAL LEADERS
-      </h2>
 
+        <TitleAnimation
+          text={"PROUD PARTNERS WITH GLOBAL LEADERS"}
+          className="heading uppercase mb-8"
+          align="center"
+          delay={0.1}
+          stagger={0.05}
+          once={true}
+        />
+    
       <Slider {...settings}>
         {partners.map((partner, index) => (
           <div key={index} className="px-4">

@@ -131,7 +131,7 @@ export default function ProductsHero() {
               transition={{ duration: 0.8, delay: 0.1 }}
               className="text-8xl uppercase text-white font-bold cotton-section-heading"
             >
-              products
+              Machines 
             </motion.h1>
             {/* <p className="text-white text-xl pl-6.5 pt-3 cotton-section-subheading">
             Empowering Vietnam’s Textile Industry Since 2016

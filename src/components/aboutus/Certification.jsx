@@ -1,4 +1,5 @@
 import React from "react";
+import TitleAnimation from "../common/AnimatedTitle";
 
 export default function Certification() {
   const logos = [
@@ -13,9 +14,17 @@ export default function Certification() {
       <div className=" page-width">
         {/* Heading */}
         <div className="text-center mb-12">
-          <h2 className="heading ">
-            STRATEGIC ALLIANCES
-          </h2>
+
+       
+           <TitleAnimation
+            text={"STRATEGIC ALLIANCES"}
+            className="heading uppercase "
+            align="center"
+            delay={0.1}
+            stagger={0.05}
+            once={true}
+          />
+          
         </div>
 
         {/* Logo Row */}

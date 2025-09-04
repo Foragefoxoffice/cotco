@@ -1,6 +1,7 @@
 // src/components/MeetOurTeam.jsx
 import { useState } from "react";
 import { FiPlus} from "react-icons/fi";
+import TitleAnimation from "../common/AnimatedTitle";
 const TEAM_SECTIONS = [
   {
     title: "Machine",
@@ -110,7 +111,14 @@ export default function MeetOurTeam() {
           <span className="mx-auto mb-3 inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-[11px] font-medium text-slate-600">
            Contact
           </span>
-          <h2 className="heading uppercase">Get In Touch</h2>
+          <TitleAnimation
+            text={"Get In Touch"}
+            className="heading uppercase"
+            align="center"
+            delay={0.1}
+            stagger={0.05}
+            once={true}
+          />
           <p className="mx-auto mt-3 max-w-3xl text-[16px] leading-relaxed text-slate-500 md:text-[16px]">
            We're here to assist you with any inquiries about our cotton, fibre, or
 machinery products.
