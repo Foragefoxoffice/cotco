@@ -55,7 +55,7 @@ const HeroSection = () => {
       </motion.div>
 
       {/* Background Image with Overlay */}
-      <div className={`relative pt-2  overflow-hidden ` + (scrolled ? "md:pt-0" : "md:pt-50")}>
+      <div className={`relative pt-2  overflow-hidden ` + (scrolled ? "md:pt-0" : "md:pt-72")}>
         <motion.img
           style={{ y: yImage }}
           src="/img/services/hero.png"

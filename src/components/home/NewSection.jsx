@@ -47,7 +47,7 @@ export default function NewsSection() {
 
   return (
     <section className="bg-white overflow-x-hidden">
-      <div className="grid grid-cols-12 gap-10 items-start page-width mr-0 md:pr-0 md:py-20 py-10" style={{ paddingRight: 0, marginRight: 0 }}>
+      <div className="grid grid-cols-12 gap-10 items-start page-width mr-0 py-6 md:py-20" >
         {/* Left column */}
         <div className="col-span-12 md:col-span-4 h-full grid place-content-center">
           <TitleAnimation
@@ -65,7 +65,7 @@ export default function NewsSection() {
 
         {/* Right: dark panel + slider */}
         <div className="col-span-12 md:col-span-8 overflow-x-hidden relative">
-          <div className="absolute inset-y-0 right-0 w-[92%] bg-[#0E2F47] rounded-l-[36px] md:rounded-l-[48px]" />
+          <div className="absolute inset-y-0 right-0 w-[92%] bg-[#0E2F47] rounded-[36px] md:rounded-l-[48px]" />
 
           <div className="relative py-12 pl-2 pr-2 md:pl-6 md:pr-10">
             {/* Arrows (optional) */}

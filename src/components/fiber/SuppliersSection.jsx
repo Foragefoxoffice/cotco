@@ -16,7 +16,7 @@ export default function SupplierSection() {
   }, []);
 
   return (
-    <section className="bg-[#0A4A78] text-white py-6  md:py-20 ">
+    <section className="bg-[#0A4A78] relative z-40 text-white py-6  md:py-20 ">
       <div className="mx-auto grid grid-cols-1 md:grid-cols-3 items-center gap-10 page-width">
         {/* Left Text Content */}
         <div className="md:col-span-2">

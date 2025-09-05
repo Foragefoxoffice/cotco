@@ -5,10 +5,9 @@ import { useInView } from "react-intersection-observer";
 import TitleAnimation from "../common/AnimatedTitle";
 import { FiArrowDownRight } from "react-icons/fi";
 const certificateImages = [
-  "/img/cotton/certificates/certification1.png",
-  "/img/cotton/certificates/certification2.jpg",
-  "/img/cotton/certificates/certification3.jpg",
-  "/img/cotton/certificates/certification4.jpg",
+  "/img/fiber/certifications/cer1.jpg",
+   "/img/fiber/certifications/cer1.jpg",
+
 ];
 
 export default function CertificationSliderSection() {
@@ -57,7 +56,7 @@ export default function CertificationSliderSection() {
         <div className="text-center md:text-left">
          
           <TitleAnimation
-            text={" PROUD member of the \n International  Cotton Association \n (ICA)"}
+            text={"GROW IN TRUST \n AND QUALITY "}
             className="heading mb-6 leading-snug text-black"
              align="center" mdAlign="left" lgAlign="right"
             delay={0.1}
