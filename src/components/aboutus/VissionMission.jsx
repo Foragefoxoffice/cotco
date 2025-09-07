@@ -62,7 +62,7 @@ export default function VissionMission() {
                             text={"VISSION & MISSION "}
                             className="font-extrabold text-white md:text-4xl text-3xl "
                             align="left"
-                            delay={0.1}
+                            delay={0.05}
                         stagger={0.05}   // slower/faster per letter
                         once={true}
                         

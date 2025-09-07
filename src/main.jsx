@@ -22,10 +22,10 @@ createRoot(document.getElementById('root')).render(
         <Route path="/aboutus" element={<Aboutus />} />
         <Route path="/cotton" element={<Cotton />} />
         <Route path="/fiber" element={<Fiber />} />
-        <Route path="/products" element={<Products />} />
+        <Route path="/machines" element={<Products />} />
         <Route path="/contact" element={<Contactus />} />
         <Route path="/blog" element={<BlogList />} />
       </Routes>
     </BrowserRouter>
-  </StrictMode>,
+  </StrictMode>
 )

@@ -3,14 +3,25 @@ import { useState } from "react";
 import { FiPlus} from "react-icons/fi";
 import TitleAnimation from "../common/AnimatedTitle";
 const TEAM_SECTIONS = [
+    {
+    title: "Cotton",
+    members: [
+      {
+        email: "cotton@cotco-vn.com",
+      },
+      {
+        email: "trading@cotco-vn.com",
+      },
+    ],
+  },
   {
     title: "Machine",
     members: [
-      {
-        name: "Cris",
+       {
+        name: "Cris Hoang",
         role: "Sales Manager",
-        phone: "+84 937 127 025",
-        email: "hoang@cotco-vn.com",
+        phone: "0397 127 025",
+        email: "machine@cotco-vn.com",
       },
       {
         name: "Nam",
@@ -38,7 +49,19 @@ const TEAM_SECTIONS = [
       },
     ],
   },
-
+   {
+    title: "Fiber",
+    members: [
+      {
+        name: "Sophie ",
+        email: "fiber@cotco-vn.com",
+        phone: "0969 00 36 00",
+      },
+      {
+        email: "trading@cotco-vn.com",
+      },
+    ],
+  },
   {
     title: "Marketing",
     members: [
@@ -57,10 +80,11 @@ const TEAM_SECTIONS = [
     ],
   },
   {
-    title: "general contact",
+    title: "Other Inquiries or Recruitmen",
     members: [
+      { phone: "0936 206 974", email: "info@cotco-vn.com" },
       {  phone: "+84 (28) 3589 9978", email: "Trading@cotco-vn.com",
-taxCode: '0314052753' },
+ },
      
     ],
   },
@@ -117,7 +141,7 @@ export default function MeetOurTeam() {
             text={"Get In Touch"}
             className="heading uppercase"
             align="center"
-            delay={0.1}
+            delay={0.05}
             stagger={0.05}
             once={true}
           />

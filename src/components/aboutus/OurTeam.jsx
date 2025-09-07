@@ -173,7 +173,7 @@ export default function MeetOurTeam() {
             text={"Meet our team"}
             className="heading uppercase" 
             align="center"
-            delay={0.1}
+            delay={0.05}
             stagger={0.05}
             once={true}
           />

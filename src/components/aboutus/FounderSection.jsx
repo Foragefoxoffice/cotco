@@ -34,7 +34,7 @@ export default function FounderSection() {
             text={"Founder"}
             className="heading uppercase "
              align="center" mdAlign="left" lgAlign="right"
-            delay={0.1}
+            delay={0.05}
             stagger={0.05}
             once={true}
           />

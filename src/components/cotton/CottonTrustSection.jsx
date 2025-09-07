@@ -12,7 +12,7 @@ export default function CottonTrustSection() {
             text={" GROW IN TRUST, QUALITY \n AND SERVICE"}
             className="heading "
              align="center" mdAlign="left" lgAlign="right"
-            delay={0.1}
+            delay={0.05}
             stagger={0.05}
             once={true}
           />

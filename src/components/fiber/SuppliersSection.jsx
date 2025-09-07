@@ -24,7 +24,7 @@ export default function SupplierSection() {
             text={"SUPPLIER"}
             className="mb-8 fontbold text-3xl font-extrabold tracking-wide text-white md:text-4xl"
             align="left"
-            delay={0.1}
+            delay={0.05}
             stagger={0.05}
             once={true}
           />

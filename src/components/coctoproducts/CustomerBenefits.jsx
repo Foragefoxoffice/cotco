@@ -43,7 +43,7 @@ export default function CustomerBenefits({
               text={"CUSTOMER BENEFITS"}
               className="mb-4 text-xl font-extrabold tracking-wide md:text-3xl fontbold"
               align="left"
-              delay={0.1}
+              delay={0.05}
               stagger={0.05}
               once={true}
             />

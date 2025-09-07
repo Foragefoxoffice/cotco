@@ -33,7 +33,7 @@ export default function ProductShowcase() {
             text={"WHAT WE DO?"}
             className="heading mb-4"
             align="left"
-            delay={0.1}
+            delay={0.05}
         stagger={0.05}   // slower/faster per letter
         once={true}
       />

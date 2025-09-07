@@ -42,7 +42,7 @@ export default function Partner() {
           text={"PROUD PARTNERS WITH GLOBAL LEADERS"}
           className="heading uppercase mb-8"
           align="center"
-          delay={0.1}
+          delay={0.05}
           stagger={0.05}
           once={true}
         />

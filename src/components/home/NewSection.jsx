@@ -47,14 +47,14 @@ export default function NewsSection() {
 
   return (
     <section className="bg-white overflow-x-hidden">
-      <div className="grid grid-cols-12 gap-10 items-start page-width mr-0 py-6 md:py-20" >
+      <div className="grid grid-cols-12 gap-10 items-start page-width mr-0 py-6 md:py-20">
         {/* Left column */}
         <div className="col-span-12 md:col-span-4 h-full grid place-content-center">
           <TitleAnimation
             text={"NEWS"}
             className="heading"
             align="heading text-center md:text-left"
-            delay={0.1}
+            delay={0.05}
             stagger={0.05}
             once={true}
           />
@@ -65,12 +65,14 @@ export default function NewsSection() {
 
         {/* Right: dark panel + slider */}
         <div className="col-span-12 md:col-span-8 overflow-x-hidden relative">
+          {/* Dark rounded panel */}
           <div className="absolute inset-y-0 right-0 w-[92%] bg-[#0E2F47] rounded-[36px] md:rounded-l-[48px]" />
 
-          <div className="relative py-12 pl-2 pr-2 md:pl-6 md:pr-10">
-            {/* Arrows (optional) */}
+          {/* Slider container (clipping + edge-blur) */}
+          <div className="relative py-12 pl-2 pr-2 md:pl-6 md:pr-10 overflow-hidden">
+            {/* Optional arrows */}
             {false && (
-              <div className="absolute -top-6 right-6 z-10 flex gap-2">
+              <div className="absolute -top-6 right-6 z-30 flex gap-2">
                 <button
                   onClick={scrollPrev}
                   disabled={!canPrev}
@@ -102,11 +104,15 @@ export default function NewsSection() {
                           "rounded-2xl bg-white ring-1 ring-black/5 overflow-hidden p-4 transition-[transform,opacity,filter] duration-300",
                           isActive
                             ? "z-20 scale-100 shadow-2xl blur-0 pointer-events-auto"
-                            : "z-10 scale-[0.85] md:mx-[-30px] shadow-md blur-[3px] pointer-events-none select-none",
+                            : "z-10 scale-[0.85] md:mx-[-30px] shadow-md blur-[4px] pointer-events-none select-none",
                         ].join(" ")}
                         aria-hidden={!isActive}
                       >
-                        <img src={n.img} alt={n.title} className="h-40 w-full rounded-xl object-cover md:h-60" />
+                        <img
+                          src={n.img}
+                          alt={n.title}
+                          className="h-40 w-full rounded-xl object-cover md:h-60"
+                        />
                         <div className="py-4">
                           <h3 className="text-[18px] font-semibold leading-snug text-slate-900">{n.title}</h3>
                           <p className="mt-2 line-clamp-2 text-sm text-slate-600">{n.excerpt}</p>
@@ -131,8 +137,26 @@ export default function NewsSection() {
               </div>
             </div>
 
+            {/* Edge blur curtains */}
+            <div
+              className="
+                pointer-events-none absolute inset-y-6 left-0 z-30
+                w-10 sm:w-16 md:w-24 lg:w-28
+                backdrop-blur-[6px]
+                [mask-image:linear-gradient(to_right,black,transparent)]
+              "
+            />
+            <div
+              className="
+                pointer-events-none absolute inset-y-6 right-0 z-30
+                w-10 sm:w-16 md:w-24 lg:w-28
+                backdrop-blur-[6px]
+                [mask-image:linear-gradient(to_left,black,transparent)]
+              "
+            />
+
             {/* Dots */}
-            <div className="mt-6 flex justify-center gap-2 pr-2">
+            <div className="mt-6 flex justify-center gap-2 pr-2 relative z-20">
               {NEWS.map((_, i) => (
                 <span
                   key={i}

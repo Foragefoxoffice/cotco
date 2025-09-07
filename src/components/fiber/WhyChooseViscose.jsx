@@ -64,7 +64,7 @@ export default function WhyChooseViscose() {
           text={"WHY CHOOSE VISCOSE FIBER?"}
           className="heading -900 mb-2"
           align="center"
-          delay={0.1}
+          delay={0.05}
           stagger={0.05}
           once={true}
         />

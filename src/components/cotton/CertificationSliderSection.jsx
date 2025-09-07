@@ -61,7 +61,7 @@ export default function CertificationSliderSection() {
             text={" PROUD member of the \n International Cotton Association \n (ICA)"}
             className="heading mb-6 leading-snug text-black"
              align="center" mdAlign="left" lgAlign="right"
-            delay={0.1}
+            delay={0.05}
             stagger={0.05}
             once={true}
           />

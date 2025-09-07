@@ -40,7 +40,7 @@ export default function PartnerSection() {
           text={"PROUD PARTNERS OF GLOBAL LEADERS"}
           className="heading text-center mb-14"
           align="center"
-          delay={0.1}
+          delay={0.05}
           stagger={0.05}
           once={true}
         />

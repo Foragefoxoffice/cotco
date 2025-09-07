@@ -13,7 +13,7 @@ const SustainabilitySection = () => {
           text={"ECO-FRIENDLY FROM PRODUCTION TO DISPOSAL"}
           className="heading mb-4"
           align="center"
-          delay={0.1}
+          delay={0.05}
           stagger={0.05}
           once={true}
         />

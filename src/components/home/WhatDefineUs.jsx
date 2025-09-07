@@ -44,7 +44,7 @@ const WhatDefineUs = () => {
             text={"WHAT DEFINES US"}
             className="text-white md:text-4xl text-3xl font-bold mb-8"
             align="center"
-            delay={0.1}
+            delay={0.05}
         stagger={0.05}   // slower/faster per letter
         once={true}
         

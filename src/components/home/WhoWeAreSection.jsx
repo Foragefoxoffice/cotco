@@ -20,7 +20,7 @@ const WhoWeAreSection = () => {
             text={"WHO WE ARE?"}
             className="heading"
             align="left"
-            delay={0.1}
+            delay={0.05}
             stagger={0.05}
             once={true}
           />

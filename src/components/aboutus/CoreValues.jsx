@@ -33,7 +33,7 @@ export default function CoreValuesSection() {
             text={"CORE VALUES"}
             className="heading"
             align="left"
-            delay={0.1}
+            delay={0.05}
         stagger={0.05}   // slower/faster per letter
         once={true}
       />

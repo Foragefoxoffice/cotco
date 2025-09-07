@@ -242,7 +242,7 @@ export default function SuppliersSection() {
               text={"SUPPLIERS"}
               className="mb-8 text-3xl fontbold tracking-wide text-white md:text-4xl"
               align="left"
-              delay={0.1}
+              delay={0.05}
             stagger={0.05}
             once={true}
           />
