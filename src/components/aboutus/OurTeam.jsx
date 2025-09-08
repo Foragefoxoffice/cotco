@@ -158,7 +158,7 @@ function MemberCard({ name, role, phone, email }) {
 
 export default function MeetOurTeam() {
   // Open "Machine" by default to match the screenshot
-  const [openIndex, setOpenIndex] = useState(1);
+  const [openIndex, setOpenIndex] = useState(null);
 
   return (
     <section className="pt-6 md:pt-20">
@@ -192,7 +192,7 @@ export default function MeetOurTeam() {
               <div key={section.title} className="rounded-2xl">
                 <button
                   type="button"
-                  onClick={() => setOpenIndex(isOpen ? -1 : idx)}
+                  onClick={() => setOpenIndex(isOpen ? 0 : idx)}
                   className="flex w-full items-center justify-between rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-left transition-colors hover:bg-slate-100"
                   aria-expanded={isOpen}
                 >

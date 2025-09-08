@@ -6,7 +6,6 @@
 
 @import "tailwindcss";
 
-
 /* ----------------------------------
    Custom Global Styles for MedAgg
 ---------------------------------- */
@@ -81,6 +80,7 @@ body.vi-mode .hero {
   padding-left: 16px;         
   padding-right: 16px;
 }
+
 .heading {
   @apply md:text-4xl text-3xl text-[#121E2B] font-bold;
 }

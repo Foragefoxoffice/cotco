@@ -89,7 +89,6 @@ const suppliers = [
 export default function SuppliersSection() {
   const [index, setIndex] = useState(0);
 
-  // refs
   const sectionRef = useRef(null);
   const indexRef = useRef(0);
   const wheelIdleTimer = useRef(null);
@@ -104,18 +103,33 @@ export default function SuppliersSection() {
   const atStart = () => indexRef.current === 0;
   const atEnd = () => indexRef.current === suppliers.length - 1;
 
+  // 🆕 Keep document scroll in sync with slide index
+  const syncScrollToIndex = (idx) => {
+    if (!sectionRef.current || typeof window === "undefined") return;
+    // Top of the whole section in the document
+    const sectionTop =
+      sectionRef.current.getBoundingClientRect().top + window.scrollY;
+    // Each slide corresponds to +1 * viewport height of scroll progress
+    const target = sectionTop + idx * window.innerHeight;
+    // Instant jump (use smooth if you want easing)
+    window.scrollTo({ top: target, behavior: "auto" });
+  };
+
   const goNext = () => {
     const next = clamp(indexRef.current + 1);
     if (next !== indexRef.current) {
       indexRef.current = next;
       setIndex(next);
+      syncScrollToIndex(next); // 🆕
     }
   };
+
   const goPrev = () => {
     const prev = clamp(indexRef.current - 1);
     if (prev !== indexRef.current) {
       indexRef.current = prev;
       setIndex(prev);
+      syncScrollToIndex(prev); // 🆕
     }
   };
 
@@ -129,8 +143,8 @@ export default function SuppliersSection() {
   };
 
   useEffect(() => {
-    const WHEEL_IDLE_MS = 260; // swallows momentum into one step
-    const SWIPE_THRESHOLD = 30; // px
+    const WHEEL_IDLE_MS = 260;
+    const SWIPE_THRESHOLD = 30;
 
     const startIdle = () => {
       if (wheelIdleTimer.current) clearTimeout(wheelIdleTimer.current);
@@ -146,14 +160,16 @@ export default function SuppliersSection() {
       const canMoveInside = (dir > 0 && !atEnd()) || (dir < 0 && !atStart());
 
       if (canMoveInside) {
-        e.preventDefault(); // capture scroll inside section
+        e.preventDefault(); // capture & step slide
         if (!gestureActive.current) {
           gestureActive.current = true;
           dir > 0 ? goNext() : goPrev();
         }
         startIdle();
       } else {
-        // At boundary; release to page by NOT preventing default
+        // At the boundary — don't prevent default so the page can continue.
+        // Because we sync scroll during steps, you'll already be at the section end
+        // on the last slide, so the very next tick releases smoothly.
       }
     };
 
@@ -174,14 +190,14 @@ export default function SuppliersSection() {
       const canMoveInside = (dir > 0 && !atEnd()) || (dir < 0 && !atStart());
 
       if (canMoveInside) {
-        e.preventDefault(); // passive:false below
+        e.preventDefault();
         if (!gestureActive.current) {
           gestureActive.current = true;
           dir > 0 ? goNext() : goPrev();
         }
-        touchStartY.current = y; // allow progressive swipes
+        touchStartY.current = y;
         startIdle();
-      } // else let page scroll
+      }
     };
 
     window.addEventListener("wheel", onWheel, { passive: false });
@@ -199,7 +215,7 @@ export default function SuppliersSection() {
       }
       if (wheelIdleTimer.current) clearTimeout(wheelIdleTimer.current);
     };
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <section
@@ -229,7 +245,7 @@ export default function SuppliersSection() {
         <div className="absolute inset-0 bg-black/60" />
 
         {/* Content */}
-        <div className="relative z-10 mx-auto flex h-full w-full  flex-col items-start justify-between gap-8 page-width md:flex-row md:items-center">
+        <div className="relative z-10 mx-auto flex h-full w-full flex-col items-start justify-between gap-8 page-width md:flex-row md:items-center">
           {/* Left info */}
           <motion.div
             key={index}
@@ -243,9 +259,9 @@ export default function SuppliersSection() {
               className="mb-8 text-3xl fontbold tracking-wide text-white md:text-4xl"
               align="left"
               delay={0.05}
-            stagger={0.05}
-            once={true}
-          />
+              stagger={0.05}
+              once={true}
+            />
             <div className="mb-4 inline-block rounded-full bg-white/95 px-5 py-2 font-medium text-black shadow">
               {suppliers[index].name}
             </div>
@@ -272,7 +288,10 @@ export default function SuppliersSection() {
             {suppliers.map((s, i) => (
               <button
                 key={s.name}
-                onClick={() => setIndex(i)}
+                onClick={() => {
+                  setIndex(i);
+                  syncScrollToIndex(i); // 🆕 keep scroll aligned if user clicks a logo
+                }}
                 className={clsx(
                   "w-40 cursor-pointer rounded-md bg-white p-2 shadow-md transition-all duration-300",
                   i === index ? "scale-105 ring-2 ring-blue-500" : "opacity-70 hover:opacity-100"
@@ -288,7 +307,10 @@ export default function SuppliersSection() {
             {suppliers.map((_, i) => (
               <button
                 key={i}
-                onClick={() => setIndex(i)}
+                onClick={() => {
+                  setIndex(i);
+                  syncScrollToIndex(i); // 🆕 clicking dots also syncs scroll
+                }}
                 aria-label={`Go to slide ${i + 1}`}
                 className={clsx(
                   "h-2.5 w-2.5 rounded-full",
