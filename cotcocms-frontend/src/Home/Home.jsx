@@ -9,7 +9,6 @@ export default function Home() {
         getPostsData();
     }, []);
 
-
     const getPostsData = async () => {
         try {
             const response = await getPosts();
