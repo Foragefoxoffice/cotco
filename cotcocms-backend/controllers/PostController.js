@@ -10,7 +10,6 @@ export const getPosts = async (req, res) => {
     }
 };
 
-
 // Add a new post
 export const addPost = async (req, res) => {
     try {
